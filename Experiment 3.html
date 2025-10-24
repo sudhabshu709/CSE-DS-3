@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>College Timetable - CSE Department</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      text-align: center;
+    }
+    th, td {
+      border: 1px solid #000;
+      padding: 8px;
+    }
+    caption {
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    .nested {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 5px;
+    }
+    .nested th, .nested td {
+      border: 1px solid #000;
+      padding: 5px;
+    }
+  </style>
+</head>
+<body>
+
+  <table>
+    <caption>College Timetable - CSE Department</caption>
+    <tr>
+      <th>Day / Time</th>
+      <th>9:00 - 10:00</th>
+      <th>10:00 - 11:00</th>
+      <th>11:00 - 12:00</th>
+      <th>12:00 - 1:00</th>
+      <th>1:00 - 2:00</th>
+      <th>2:00 - 3:00</th>
+      <th>3:00 - 4:00</th>
+    </tr>
+    <tr>
+      <td>Monday</td>
+      <td>Mathematics</td>
+      <td>English</td>
+      <td></td>
+      <td>Break</td>
+      <td>Computer Lab</td>
+      <td>Sports</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Tuesday</td>
+      <td></td>
+      <td>C Programming</td>
+      <td></td>
+      <td>Break</td>
+      <td>Electronics Lab</td>
+      <td>Library</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Wednesday</td>
+      <td>Mathematics</td>
+      <td>English</td>
+      <td>Physics</td>
+      <td>Break</td>
+      <td colspan="3">
+        Computer Networks
+        <br><br>
+        <table class="nested">
+          <tr><th colspan="2">Lab Details</th></tr>
+          <tr><td>Batch A</td><td>DBMS Lab</td></tr>
+          <tr><td>Batch B</td><td>OS Lab</td></tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td>Thursday</td>
+      <td>Workshop</td>
+      <td></td>
+      <td>Physics</td>
+      <td>Break</td>
+      <td>Mathematics</td>
+      <td>English</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Friday</td>
+      <td>Computer Networks</td>
+      <td>English</td>
+      <td>Physics</td>
+      <td>Break</td>
+      <td>Project Work</td>
+      <td>Seminar</td>
+      <td></td>
+    </tr>
+  </table>
+
+</body>
+</html>
