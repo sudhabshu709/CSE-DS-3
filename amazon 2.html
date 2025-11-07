@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Amazon Product Grid</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f3f3f3;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Header */
+    header {
+      background-color: #232f3e;
+      
+      padding: 20px 0;
+      text-align: center;
+    }
+
+    header img {
+      height: 50px;
+    }
+
+    /* Navigation Bar */
+    nav {
+      background-color: #37475a;
+      text-align: center;
+      padding: 10px 0;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 20px;
+      font-size: 16px;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    /* Product Grid */
+    h1 {
+      text-align: center;
+      color: #111;
+      margin-top: 25px;
+    }
+
+    table {
+      width: 90%;
+      margin: 30px auto;
+      border-collapse: separate;   /* allow spacing */
+      border-spacing: 20px;        /* space between cells */
+    }
+
+    td {
+      background-color: #fff;
+      text-align: center;
+      padding: 20px;
+      border: none;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      width: 25%;
+      vertical-align: top;
+    }
+
+    img {
+      width: 150px;
+      height: 150px;
+      object-fit: contain;
+      margin-bottom: 10px;
+    }
+
+    .price {
+      font-size: 18px;
+      color: #B12704;
+      margin: 8px 0;
+    }
+
+    .add-btn {
+      background-color: #FFD814;
+      border: 1px solid #FCD200;
+      color: #111;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .add-btn:hover {
+      background-color: #F7CA00;
+    }
+
+    footer {
+      background-color: #232f3e;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      margin-top: 40px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header with Amazon Logo -->
+  <header>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Amazon Logo">
+  </header>
+
+  <!-- Navigation Bar -->
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">Deals</a>
+    <a href="#">Cart</a>
+    <a href="#">Contact</a>
+  </nav>
+
+  <!-- Product Grid -->
+  <h1>Amazon Product Grid (4x4)</h1>
+  <table>
+    <tr>
+      <td><img src="https://m.media-amazon.com/images/I/71geVdy6-OS._AC_SL1500_.jpg"><p class="price">₹2,999</p><button class="add-btn">Add to Cart</button></td>
+      <td><img src="https://m.media-amazon.com/images/I/81Ke5qtIXJL._AC_SL1500_.jpg"><p class="price">₹3,499</p><button class="add-btn">Add to Cart</button></td>
+      <td><img src="https://m.media-amazon.com/images/I/61kY5V2V2AL._AC_SL1500_.jpg"><p class="price">₹1,899</p><button class="add-btn">Add to Cart</button></td>
+      <td><img src="https://m.media-amazon.com/images/I/61d+8c3NACL._AC_SL1500_.jpg"><p class="price">₹1,299</p><button class="add-btn">Add to Cart</button></td>
+    </tr>
+    <tr>
+      <td><img src="https://m.media-amazon.com/images/I/71s8gJZT8DL._AC_SL1500_.jpg"><p class="price">₹2,499</p><button class="add-btn">Add to Cart</button></td>
+      <td><img src="https://m.media-amazon.com/images/I/71kVjK2Kx-L._AC_SL1500_.jpg"><p class="price">₹999</p><button class="add-btn">Add to Cart</button></td>
+      <td><img src="https://m.media-amazon.com/images/I/61DUO0NqyyL._AC_SL1500_.jpg"><p class="price">₹59,999</p><button class="add-btn">Add to Cart</button></td>
+      <td><img src="https://m.media-amazon.com/images/I/81lpkG+Y0BL._AC_SL1500_.jpg"><p class="price">₹14,999</p><button class="add-btn">Add to Cart</button></td>
+    </tr>
+    <tr>
+      <td><img src="https://m.media-amazon.com/images/I/81QpkIctqPL._AC_SL1500_.jpg"><p class="price">₹42,999</p><button class="add-btn">Add to Cart</button></td>
+      <td><img src="https://m.media-amazon.com/images/I/71tN5cFBvFL._AC_SL1500_.jpg"><p class="price">₹1,499</p><button class="add-btn">Add to Cart</button></td>
+      <td><img src="https://m.media-amazon.com/images/I/71-8n44PUCL._AC_SL1500_.jpg"><p class="price">₹25,999</p><button class="add-btn">Add to Cart</button></td>
+      <td><img src="https://m.media-amazon.com/images/I/81hH5vK-MCL._AC_SL1500_.jpg"><p class="price">₹11,999</p><button class="add-btn">Add to Cart</button></td>
+    </tr>
+    <tr>
+      <td><img src="https://m.media-amazon.com/images/I/71tcoYYVZqL._AC_SL1500_.jpg"><p class="price">₹2,199</p><button class="add-btn">Add to Cart</button></td>
+      <td><img src="https://m.media-amazon.com/images/I/81Ke5qtIXJL._AC_SL1500_.jpg"><p class="price">₹3,499</p><button class="add-btn">Add to Cart</button></td>
+      <td><img src="https://m.media-amazon.com/images/I/61d+8c3NACL._AC_SL1500_.jpg"><p class="price">₹1,299</p><button class="add-btn">Add to Cart</button></td>
+      <td><img src="https://m.media-amazon.com/images/I/71geVdy6-OS._AC_SL1500_.jpg"><p class="price">₹2,999</p><button class="add-btn">Add to Cart</button></td>
+    </tr>
+  </table>
+
+  <footer>
+    © 2025 Amazon Clone Demo | Built with HTML & CSS
+  </footer>
+
+</body>
+</html>
