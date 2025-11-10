@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>ShopEasy Product Card</title>
+
+<style>
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+  }
+
+  body {
+    background: #f7f8fb;
+    color: #111;
+    padding: 20px;
+  }
+
+  .site-header {
+    background: #222;
+    color: #fff;
+    padding: 12px;
+    text-align: center;
+    margin-bottom: 18px;
+    font-size: 24px;
+    font-weight: bold;
+  }
+
+  .container {
+    max-width: 420px;
+    margin: 0 auto;
+  }
+
+  .product-card {
+    background: #fff;
+    border: 1px solid #e0e4ef;
+    padding: 12px;
+    border-radius: 6px;
+    text-align: left;
+  }
+
+  .product-image {
+    width: 100%;
+    height: 200px;
+    border: 1px solid #ddd;
+    object-fit: cover;
+    margin-bottom: 10px;
+  }
+
+  .product-title {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+
+  .product-desc {
+    font-size: 14px;
+    color: #444;
+    margin-bottom: 10px;
+  }
+
+  .price-row {
+    margin-bottom: 12px;
+  }
+
+  .price {
+    font-weight: bold;
+    color: #0b6b3a;
+    margin-right: 8px;
+  }
+
+  .old-price {
+    color: #888;
+    text-decoration: line-through;
+  }
+
+  .add-cart {
+    width: 100%;
+    padding: 10px;
+    background: #0066cc;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+
+  .add-cart:hover {
+    background: #0053a3;
+  }
+</style>
+
+</head>
+
+<body>
+
+<header class="site-header">ShopEasy</header>
+
+<main class="container">
+  <section class="product-card">
+
+    <img class="product-image" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQixkkj9T7IsDuahTPrQwUD0xkkL1INMVBUBA&s" alt="T-shirt">
+
+    <h2 class="product-title">Classic Cotton T-Shirt</h2>
+    <p class="product-desc">Soft, breathable cotton. Regular fit. Available in multiple colors.</p>
+
+    <div class="price-row">
+      <span class="price">₹799</span>
+      <span class="old-price">₹1,199</span>
+    </div>
+
+    <button class="add-cart">Add to Cart</button>
+  </section>
+</main>
+
+</body>
+</html>
