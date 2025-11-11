@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amazon-Inspired Store</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        
+        body {
+            background-color: #f3f3f3;
+            color: #0f1111;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: #131921;
+            color: white;
+            padding: 10px 15px;
+        }
+        
+        .header-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1500px;
+            margin: 0 auto;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo span {
+            color: #ff9900;
+        }
+        
+        .logo-icon {
+            font-size: 28px;
+            margin-right: 5px;
+        }
+        
+        .search-bar {
+            display: flex;
+            flex-grow: 1;
+            max-width: 700px;
+            margin: 0 20px;
+        }
+        
+        .search-bar input {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 4px 0 0 4px;
+            font-size: 16px;
+        }
+        
+        .search-bar button {
+            background-color: #febd69;
+            border: none;
+            border-radius: 0 4px 4px 0;
+            padding: 0 15px;
+            cursor: pointer;
+        }
+        
+        .nav-links {
+            display: flex;
+            align-items: center;
+        }
+        
+        .nav-item {
+            margin-left: 15px;
+            font-size: 14px;
+            cursor: pointer;
+        }
+        
+        .nav-item strong {
+            font-size: 12px;
+            display: block;
+        }
+        
+        .cart {
+            display: flex;
+            align-items: center;
+            font-size: 16px;
+        }
+        
+        .cart-icon {
+            font-size: 24px;
+            margin-right: 5px;
+        }
+        
+        /* Navigation Bar */
+        .secondary-nav {
+            background-color: #232f3e;
+            padding: 8px 15px;
+        }
+        
+        .secondary-nav ul {
+            display: flex;
+            list-style: none;
+            max-width: 1500px;
+            margin: 0 auto;
+        }
+        
+        .secondary-nav li {
+            margin-right: 15px;
+            font-size: 14px;
+            cursor: pointer;
+        }
+        
+        /* Main Content */
+        .container {
+            max-width: 1500px;
+            margin: 20px auto;
+            padding: 0 15px;
+        }
+        
+        .banner {
+            background-color: #fff;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 4px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .banner h1 {
+            color: #232f3e;
+            margin-bottom: 10px;
+        }
+        
+        /* Product Grid */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+        
+        .product-card {
+            background-color: white;
+            border-radius: 4px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .product-image {
+            height: 200px;
+            background-color: #f7f7f7;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .product-image img {
+            max-height: 100%;
+            max-width: 100%;
+        }
+        
+        .product-info {
+            padding: 15px;
+        }
+        
+        .product-title {
+            font-size: 16px;
+            margin-bottom: 10px;
+            color: #0f1111;
+        }
+        
+        .product-rating {
+            color: #ffa41c;
+            margin-bottom: 10px;
+        }
+        
+        .product-price {
+            font-size: 18px;
+            font-weight: bold;
+            color: #b12704;
+            margin-bottom: 10px;
+        }
+        
+        .prime-badge {
+            color: #007185;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+        
+        .add-to-cart {
+            background-color: #ffd814;
+            border: none;
+            border-radius: 20px;
+            padding: 8px 15px;
+            font-size: 14px;
+            cursor: pointer;
+            width: 100%;
+        }
+        
+        .add-to-cart:hover {
+            background-color: #f7ca00;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #232f3e;
+            color: white;
+            padding: 30px 15px;
+            margin-top: 30px;
+        }
+        
+        .footer-content {
+            max-width: 1500px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        
+        .footer-section {
+            flex: 1;
+            min-width: 200px;
+            margin-bottom: 20px;
+        }
+        
+        .footer-section h3 {
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section li {
+            margin-bottom: 8px;
+            font-size: 14px;
+            cursor: pointer;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #3a4553;
+            margin-top: 20px;
+            font-size: 14px;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-wrap: wrap;
+            }
+            
+            .search-bar {
+                order: 3;
+                margin: 10px 0 0;
+                max-width: 100%;
+            }
+            
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .secondary-nav ul {
+                flex-wrap: wrap;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header with Logo and Navigation -->
+    <header>
+        <div class="header-container">
+            <a href="#" class="logo">
+                <span class="logo-icon">🛒</span>
+                amazon<span>clone</span>
+            </a>
+            
+            <div class="search-bar">
+                <input type="text" placeholder="Search for products...">
+                <button>🔍</button>
+            </div>
+            
+            <div class="nav-links">
+                <div class="nav-item">
+                    <strong>Hello, Sign in</strong>
+                    <span>Account & Lists</span>
+                </div>
+                <div class="nav-item">
+                    <strong>Returns</strong>
+                    <span>& Orders</span>
+                </div>
+                <div class="nav-item cart">
+                    <span class="cart-icon">🛒</span>
+                    <span>Cart</span>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Secondary Navigation -->
+    <nav class="secondary-nav">
+        <ul>
+            <li>All</li>
+            <li>Today's Deals</li>
+            <li>Customer Service</li>
+            <li>Registry</li>
+            <li>Gift Cards</li>
+            <li>Sell</li>
+        </ul>
+    </nav>
+    
+    <!-- Main Content -->
+    <div class="container">
+        <div class="banner">
+            <h1>Today's Deals</h1>
+            <p>Shop our latest offers and limited-time discounts</p>
+        </div>
+        
+        <!-- Product Grid -->
+        <div class="product-grid">
+            <!-- Product 1 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://via.placeholder.com/200x150/4A90E2/FFFFFF?text=Wireless+Headphones" alt="Wireless Headphones">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Wireless Bluetooth Headphones with Noise Cancellation</h3>
+                    <div class="product-rating">★★★★☆ 4.2</div>
+                    <div class="product-price">$79.99</div>
+                    <div class="prime-badge">FREE delivery with Prime</div>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+            
+            <!-- Product 2 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://via.placeholder.com/200x150/50E3C2/FFFFFF?text=Smart+Watch" alt="Smart Watch">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Fitness Tracker Smart Watch with Heart Rate Monitor</h3>
+                    <div class="product-rating">★★★★★ 4.7</div>
+                    <div class="product-price">$129.99</div>
+                    <div class="prime-badge">FREE delivery with Prime</div>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+            
+            <!-- Product 3 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://via.placeholder.com/200x150/9013FE/FFFFFF?text=Tablet" alt="Tablet">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">10-inch Android Tablet with 64GB Storage</h3>
+                    <div class="product-rating">★★★☆☆ 3.8</div>
+                    <div class="product-price">$199.99</div>
+                    <div class="prime-badge">FREE delivery with Prime</div>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+            
+            <!-- Product 4 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://via.placeholder.com/200x150/F5A623/FFFFFF?text=Gaming+Console" alt="Gaming Console">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Next-Gen Gaming Console with 1TB Storage</h3>
+                    <div class="product-rating">★★★★☆ 4.5</div>
+                    <div class="product-price">$499.99</div>
+                    <div class="prime-badge">FREE delivery with Prime</div>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Get to Know Us</h3>
+                <ul>
+                    <li>Careers</li>
+                    <li>Blog</li>
+                    <li>About Amazon</li>
+                    <li>Investor Relations</li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Make Money with Us</h3>
+                <ul>
+                    <li>Sell products</li>
+                    <li>Sell on Amazon</li>
+                    <li>Become an Affiliate</li>
+                    <li>Advertise Your Products</li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Amazon Payment Products</h3>
+                <ul>
+                    <li>Amazon Business Card</li>
+                    <li>Shop with Points</li>
+                    <li>Reload Your Balance</li>
+                    <li>Amazon Currency Converter</li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Let Us Help You</h3>
+                <ul>
+                    <li>Amazon and COVID-19</li>
+                    <li>Your Account</li>
+                    <li>Your Orders</li>
+                    <li>Shipping Rates & Policies</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>© 2023 Amazon Clone. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
