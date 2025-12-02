@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Profile Cards</title>
+
+<style>
+    body{
+        font-family: Arial, Helvetica, sans-serif;
+        margin: 40px;
+    }
+
+    .output-title{
+        font-weight: bold;
+        font-size: 20px;
+    }
+
+    .container{
+        border: 2px solid black;
+        padding: 30px 20px;
+        margin-top: 20px;
+        display: flex;
+        justify-content: center;
+        gap: 40px;
+    }
+
+    .card{
+        width: 230px;
+        background: #ffffff;
+        border-radius: 10px;
+        padding: 25px 10px 20px;
+        text-align: center;
+        box-shadow: 0px 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .circle{
+        width: 65px;
+        height: 65px;
+        border-radius: 50%;
+        background: #1e90ff;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        font-size: 18px;
+        margin: 0 auto 15px auto;
+    }
+
+    .name{
+        font-size: 16px;
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+
+    .details{
+        font-size: 14px;
+        line-height: 20px;
+        color: #444;
+    }
+</style>
+
+</head>
+<body>
+
+<div class="container">
+
+    <div class="card">
+        <div class="circle">JK</div>
+        <div class="name">Jeet Kumar</div>
+        <div class="details">
+            B.Tech - CSE <br>
+            Roll No: 21CS1007 <br>
+            1st Year
+        </div>
+    </div>
+
+    
+    <div class="card">
+        <div class="circle">AR</div>
+        <div class="name">Asha Rani</div>
+        <div class="details">
+            B.Tech - IT <br>
+            Roll No: 21IT1012 <br>
+            1st Year
+        </div>
+    </div>
+
+        <div class="card">
+        <div class="circle">RK</div>
+        <div class="name">Rohit Kumar</div>
+        <div class="details">
+            B.Tech - ECE <br>
+            Roll No: 21EC1009 <br>
+            1st Year
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>
