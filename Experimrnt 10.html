@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ShopEase</title>
+
+<style>
+    body{
+        margin:0;
+        font-family: Arial, sans-serif;
+    }
+
+    
+    .navbar{
+        display:flex;
+        align-items:center;
+        justify-content:space-between;
+        padding:12px 30px;
+        background:#111;
+        color:white;
+    }
+
+    .logo{
+        font-size:20px;
+        font-weight:bold;
+    }
+
+    .nav-links{
+        display:flex;
+        gap:25px;
+        list-style:none;
+    }
+
+    .nav-links a{
+        color:white;
+        text-decoration:none;
+        font-size:14px;
+    }
+
+    .right-items{
+        display:flex;
+        gap:20px;
+        color:white;
+    }
+
+    
+    .menu-btn{
+        display:none;
+        font-size:25px;
+        cursor:pointer;
+    }
+
+    
+    @media(max-width:768px){
+        .nav-links{
+            position:absolute;
+            top:60px;
+            left:0;
+            width:100%;
+            background:#111;
+            flex-direction:column;
+            align-items:center;
+            gap:15px;
+            padding:20px 0;
+            display:none;
+        }
+
+        .nav-links.show{
+            display:flex;
+        }
+
+        .menu-btn{
+            display:block;
+        }
+
+        .right-items{
+            display:none;
+        }
+    }
+
+    
+    .hero{
+        padding:30px;
+    }
+
+</style>
+</head>
+<body>
+
+
+<div class="navbar">
+    <div class="logo">ShopEase</div>
+
+    
+    <div class="menu-btn" onclick="toggleMenu()">☰</div>
+
+    <ul class="nav-links" id="navMenu">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Products</a></li>
+        <li><a href="#">Categories</a></li>
+        <li><a href="#">Deals</a></li>
+        <li><a href="#">Contact</a></li>
+    </ul>
+
+    <div class="right-items">
+        <span>Cart 🛒</span>
+        <span>Login</span>
+    </div>
+</div>
+
+
+<div class="hero">
+    <h2>Welcome to ShopEase!</h2>
+    <p>Your one-stop destination for all shopping needs.</p>
+</div>
+
+<script>
+    function toggleMenu(){
+        document.getElementById("navMenu").classList.toggle("show");
+    }
+</script>
+
+</body>
+</html>
