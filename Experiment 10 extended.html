@@ -6,154 +6,122 @@
 <title>Experiment – Responsive E-commerce Navbar</title>
 
 <style>
-    body{
-        margin:0;
-        font-family: Georgia, serif;
-    }
-
-    /* ---------------- NAVBAR (DESKTOP) ---------------- */
-    .navbar{
-        width:100%;
-        background:#111;
-        color:#fff;
-        display:flex;
-        align-items:center;
-        justify-content:space-between;
-        padding:10px 30px;
-        box-sizing:border-box;
-        position:relative;
-    }
-
-    .logo{
-        font-size:20px;
-        font-weight:bold;
-    }
-
-    .nav-center{
-        display:flex;
-        gap:35px;
-        list-style:none;
-        margin:0;
-        align-items:center;
-    }
-
-    .nav-center a{
-        text-decoration:none;
-        color:#ddd;
-        font-size:14px;
-    }
-
-    .nav-center a:hover{
-        color:white;
-    }
-
-    .nav-right{
-        display:flex;
-        gap:20px;
-        font-size:14px;
-        color:#ddd;
-        cursor:pointer;
-    }
-
-    /* ---------------- HAMBURGER (MOBILE DISPLAY) ---------------- */
-    .menu-btn{
-        display:none;
-        font-size:28px;
-        cursor:pointer;
-        color:white;
-    }
-
-    /* ---------------- MOBILE MENU ---------------- */
-    .mobile-menu{
-        position:absolute;
-        top:55px;
-        left:0;
-        width:100%;
-        background:#111;
-        display:none;
-        flex-direction:column;
-        align-items:center;
-        list-style:none;
-        gap:15px;
-        padding:20px 0;
-    }
-
-    .mobile-menu.show{
-        display:flex;
-    }
-
-    .mobile-menu a{
-        color:white;
-        text-decoration:none;
-        font-size:15px;
-    }
-
-    /* ---------------- MEDIA QUERY ---------------- */
-    @media(max-width:850px){
-        .nav-center,
-        .nav-right{
-            display:none;
-        }
-        .menu-btn{
-            display:block;
-        }
-    }
-
-    /* ---------------- PAGE CONTENT BOX ---------------- */
-    .content-box{
-        border:2px solid black;
-        margin:20px;
-        padding:20px;
-        height:470px;
-    }
-
-    h2{
-        margin-top:0;
-    }
+   * Reset */ 
+* { 
+  margin: 0; 
+  padding: 0; 
+  box-sizing: border-box; 
+} 
+ 
+/* Navbar Container */ 
+.navbar { 
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center; 
+  background-color: #222; 
+  color: white; 
+  padding: 15px 20px; 
+  position: relative; 
+} 
+ 
+/* Logo */ 
+.logo { 
+  font-size: 1.5rem; 
+  font-weight: bold; 
+} 
+ 
+/* Nav Links */ 
+.nav-links { 
+  display: flex; 
+  list-style: none; 
+} 
+ 
+.nav-links li { 
+  margin: 0 15px; 
+} 
+ 
+.nav-links a { 
+  text-decoration: none; 
+  color: white; 
+  font-size: 1rem; 
+} 
+ 
+/* Actions */ 
+.actions a { 
+  margin-left: 15px; 
+  color: white; 
+  text-decoration: none; 
+  font-weight: bold; 
+} 
+ 
+/* Hamburger Menu */ 
+.hamburger { 
+  display: none; 
+  font-size: 2rem; 
+  cursor: pointer; 
+} 
+ 
+/* Hide checkbox */ 
+#menu-toggle { 
+  display: none; 
+} 
+ 
+/* 📱 Mobile-first Design */ 
+@media (max-width: 768px) { 
+  .nav-links { 
+    display: none; 
+    position: absolute; 
+    top: 60px; 
+    left: 0; 
+    right: 0; 
+    flex-direction: column; 
+    background-color: #333; 
+    padding: 15px 0; 
+  } 
+ 
+  .nav-links li { 
+    margin: 10px 0; 
+    text-align: center; 
+  } 
+ 
+  .hamburger { 
+    display: block; 
+  } 
+ 
+  /* Show menu when checkbox is checked */ 
+  #menu-toggle:checked + .hamburger + .nav-links { 
+    display: flex; 
+  } 
+} 
 </style>
 
 </head>
 <body>
-
-<!-- NAVBAR -->
-<div class="navbar">
-    <div class="logo">ShopEase</div>
-
-    <!-- CENTER NAV MENU -->
-    <ul class="nav-center">
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Products</a></li>
-        <li><a href="#">Categories</a></li>
-        <li><a href="#">Deals</a></li>
-        <li><a href="#">Contact</a></li>
-    </ul>
-
-    <!-- RIGHT LINKS -->
-    <div class="nav-right">
-        <span>Cart 🛒</span>
-        <span>Login</span>
-    </div>
-
-    <!-- MOBILE MENU ICON -->
-    <div class="menu-btn" onclick="toggleMenu()">☰</div>
-</div>
-
-<!-- MOBILE MENU DROPDOWN -->
-<ul class="mobile-menu" id="mobileNav">
-    <li><a href="#">Home</a></li>
-    <li><a href="#">Products</a></li>
-    <li><a href="#">Categories</a></li>
-    <li><a href="#">Deals</a></li>
-    <li><a href="#">Contact</a></li>
-    <li><a href="#">Cart 🛒</a></li>
-    <li><a href="#">Login</a></li>
-</ul>
-
-<!-- MAIN CONTENT AREA -->
-
-    <h2>Welcome to ShopEase!</h2>
-    <p>Your one-stop destination for all shopping needs.</p>
-     
-</body>
-</html>
-
+<!-- Navbar --> 
+  <nav class="navbar"> 
+    <div class="logo">ShopEase</div> 
+    <!-- Hamburger menu button (checkbox hack) --> 
+    <input type="checkbox" id="menu-toggle"> 
+    <label for="menu-toggle" class="hamburger">&#9776;</label> 
+    <!-- Navigation Links --> 
+    <ul class="nav-links"> 
+      <li><a href="#">Home</a></li> 
+      <li><a href="#">Products</a></li> 
+      <li><a href="#">Categories</a></li> 
+      <li><a href="#">Deals</a></li> 
+      <li><a href="#">Contact</a></li> 
+    </ul> 
+    <!-- Actions --> 
+    <div class="actions"> 
+      <a href="#">Cart 🛒</a> 
+      <a href="#">Login</a> 
+    </div> 
+  </nav> 
+ 
+  <!-- Sample Content --> 
+  <section> 
+    <h1>Welcome to ShopEase!</h1> 
+    <p>Your one-stop destination for all shopping needs.</p> 
+  </section> 
+</body> 
+</html> 
