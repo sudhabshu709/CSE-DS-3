@@ -1,108 +1,143 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>College Timetable - CSE Department</title>
-  <style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>College Timetable</title>
+<style>
     body {
-      font-family: Arial, sans-serif;
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        padding: 20px;
+    }
+    .timetable-container {
+        border: 2px solid #000;
+        padding: 10px;
+        display: inline-block;
     }
     table {
-      border-collapse: collapse;
-      width: 100%;
-      text-align: center;
+        border-collapse: collapse;
+        width: 800px;
+        text-align: center;
     }
     th, td {
-      border: 1px solid #000;
-      padding: 8px;
+        border: 1px solid black;
+        padding: 8px;
+        font-size: 14px;
+        vertical-align: middle;
     }
-    caption {
-      font-weight: bold;
-      margin-bottom: 10px;
+    /* Header Styles */
+    .main-title {
+        font-weight: bold;
+        padding-bottom: 10px;
+        border: none;
     }
-    .nested {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 5px;
+    th {
+        background-color: #fff; /* or light gray if preferred */
+        font-weight: bold;
     }
-    .nested th, .nested td {
-      border: 1px solid #000;
-      padding: 5px;
+    
+    /* Specific styling for the nested Lab Details table */
+    .nested-table-container {
+        padding: 2px;
+        height: 100%;
     }
-  </style>
+    .nested-table {
+        width: 100%;
+        height: 100%;
+        border: 2px solid black; /* Outer border of the inner box */
+        margin: 0;
+    }
+    .nested-table th {
+        border: 1px solid black;
+        font-size: 12px;
+        padding: 4px;
+    }
+    .nested-table td {
+        border: 1px solid black;
+        font-size: 12px;
+        padding: 4px;
+    }
+</style>
 </head>
 <body>
 
-  <table>
-    <caption>College Timetable - CSE Department</caption>
-    <tr>
-      <th>Day / Time</th>
-      <th>9:00 - 10:00</th>
-      <th>10:00 - 11:00</th>
-      <th>11:00 - 12:00</th>
-      <th>12:00 - 1:00</th>
-      <th>1:00 - 2:00</th>
-      <th>2:00 - 3:00</th>
-      <th>3:00 - 4:00</th>
-    </tr>
-    <tr>
-      <td>Monday</td>
-      <td>Mathematics</td>
-      <td>English</td>
-      <td></td>
-      <td>Break</td>
-      <td>Computer Lab</td>
-      <td>Sports</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>Tuesday</td>
-      <td></td>
-      <td>C Programming</td>
-      <td></td>
-      <td>Break</td>
-      <td>Electronics Lab</td>
-      <td>Library</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>Wednesday</td>
-      <td>Mathematics</td>
-      <td>English</td>
-      <td>Physics</td>
-      <td>Break</td>
-      <td colspan="3">
-        Computer Networks
-        <br><br>
-        <table class="nested">
-          <tr><th colspan="2">Lab Details</th></tr>
-          <tr><td>Batch A</td><td>DBMS Lab</td></tr>
-          <tr><td>Batch B</td><td>OS Lab</td></tr>
-        </table>
-      </td>
-    </tr>
-    <tr>
-      <td>Thursday</td>
-      <td>Workshop</td>
-      <td></td>
-      <td>Physics</td>
-      <td>Break</td>
-      <td>Mathematics</td>
-      <td>English</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>Friday</td>
-      <td>Computer Networks</td>
-      <td>English</td>
-      <td>Physics</td>
-      <td>Break</td>
-      <td>Project Work</td>
-      <td>Seminar</td>
-      <td></td>
-    </tr>
-  </table>
+<div class="timetable-container">
+    <table>
+        <tr>
+            <td colspan="8" class="main-title">College Timetable - CSE Department</td>
+        </tr>
+        
+        <tr>
+            <th>Day / Time</th>
+            <th>9:00 - 10:00</th>
+            <th>10:00 - 11:00</th>
+            <th>11:00 - 12:00</th>
+            <th>12:00 - 1:00</th>
+            <th>1:00 - 2:00</th>
+            <th>2:00 - 3:00</th>
+            <th>3:00 - 4:00</th>
+        </tr>
+
+        <tr>
+            <th>Monday</th>
+            <td rowspan="2">Mathematics</td> <td>English</td>
+            <td rowspan="3">Physics</td> <td rowspan="3">Break</td>   <td colspan="2">Computer Lab</td>
+            <td>Sports</td>
+        </tr>
+
+        <tr>
+            <th>Tuesday</th>
+            <td>C Programming</td>
+            <td colspan="2">Electronics Lab</td>
+            <td>Library</td>
+        </tr>
+
+        <tr>
+            <th>Wednesday</th>
+            <td>Mathematics</td>
+            <td>English</td>
+            <td>Computer Networks</td>
+            
+            <td colspan="2" class="nested-table-container">
+                <table class="nested-table">
+                    <tr>
+                        <th colspan="2">Lab Details</th>
+                    </tr>
+                    <tr>
+                        <td>Batch A</td>
+                        <td>DBMS Lab</td>
+                    </tr>
+                    <tr>
+                        <td>Batch B</td>
+                        <td>OS Lab</td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+
+        <tr>
+            <th>Thursday</th>
+            <td colspan="2">Workshop</td>
+            <td>Physics</td>
+            <td>Break</td>
+            <td>Mathematics</td>
+            <td>English</td>
+            <td>Seminar</td>
+        </tr>
+
+        <tr>
+            <th>Friday</th>
+            <td>Computer Networks</td>
+            <td>English</td>
+            <td>Physics</td>
+            <td>Break</td>
+            <td colspan="3">Project Work</td>
+        </tr>
+
+    </table>
+</div>
 
 </body>
 </html>
