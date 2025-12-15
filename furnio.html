@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Furniro – Furniture Store</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+/* ============ RESET ============ */
+*{margin:0;padding:0;box-sizing:border-box}
+
+/* ============ VARIABLES ============ */
+:root{
+  --bg:#f9e2d2;
+  --primary:#b88e2f;
+  --dark:#333;
+  --muted:#777;
+  --card:#fff;
+  --radius:16px;
+}
+
+/* ============ BODY ============ */
+body{
+  font-family:'Poppins',sans-serif;
+  background:var(--bg);
+  color:var(--dark);
+}
+
+/* ============ HEADER ============ */
+header{
+  background:white;
+  padding:20px 80px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.logo{
+  font-size:22px;
+  font-weight:700;
+  color:var(--primary);
+}
+
+nav a{
+  margin:0 16px;
+  text-decoration:none;
+  color:var(--dark);
+  font-weight:500;
+}
+
+/* ============ HERO ============ */
+.hero{
+  padding:60px 80px;
+  display:grid;
+  grid-template-columns:1.1fr 1fr;
+  gap:40px;
+}
+
+.hero-left h1{
+  font-size:64px;
+  color:var(--primary);
+  line-height:1.1;
+}
+
+.hero-left h1 span{
+  display:block;
+  font-size:36px;
+}
+
+.hero-left p{
+  margin:24px 0;
+  max-width:480px;
+  color:var(--muted);
+}
+
+.hero-left button{
+  padding:14px 36px;
+  background:var(--primary);
+  border:none;
+  color:white;
+  font-size:16px;
+  border-radius:8px;
+}
+
+.hero-right{
+  background:white;
+  padding:40px;
+  border-radius:var(--radius);
+}
+
+/* ============ SECTION ============ */
+.section{
+  padding:80px;
+  background:white;
+}
+
+.section h2{
+  text-align:center;
+  margin-bottom:10px;
+}
+
+.section p{
+  text-align:center;
+  color:var(--muted);
+  margin-bottom:40px;
+}
+
+/* ============ PRODUCT GRID (PRO LEVEL) ============ */
+.products{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:32px;
+}
+
+.product{
+  background:white;
+  border-radius:16px;
+  overflow:hidden;
+  position:relative;
+  box-shadow:0 14px 30px rgba(0,0,0,.08);
+  transition:.35s;
+}
+
+.product:hover{
+  transform:translateY(-10px);
+  box-shadow:0 30px 60px rgba(0,0,0,.15);
+}
+
+.product img{
+  width:100%;
+  height:260px;
+  object-fit:cover;
+}
+
+.product-info{
+  padding:18px;
+}
+
+.product-info h4{
+  font-size:16px;
+  font-weight:600;
+}
+
+.desc{
+  font-size:13px;
+  color:var(--muted);
+  margin:4px 0 10px;
+}
+
+.price-row{
+  display:flex;
+  gap:10px;
+  align-items:center;
+}
+
+.price{
+  font-weight:700;
+}
+
+.old{
+  font-size:13px;
+  color:#999;
+  text-decoration:line-through;
+}
+
+/* BADGES */
+.badge{
+  position:absolute;
+  top:14px;
+  left:14px;
+  padding:6px 12px;
+  border-radius:20px;
+  font-size:12px;
+  color:white;
+  font-weight:600;
+}
+
+.sale{background:#e11d48}
+.new{background:#16a34a}
+
+/* OVERLAY */
+.product-overlay{
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,.55);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  opacity:0;
+  transition:.3s;
+}
+
+.product:hover .product-overlay{
+  opacity:1;
+}
+
+.product-overlay button{
+  background:var(--primary);
+  border:none;
+  padding:12px 26px;
+  color:white;
+  border-radius:8px;
+  margin-bottom:12px;
+}
+
+.overlay-links{
+  display:flex;
+  gap:20px;
+  color:white;
+  font-size:13px;
+}
+
+/* ============ FOOTER ============ */
+footer{
+  padding:40px 80px;
+  background:#fafafa;
+  text-align:center;
+  color:var(--muted);
+}
+
+/* ============ RESPONSIVE ============ */
+@media(max-width:1000px){
+  .hero{grid-template-columns:1fr}
+  header,.hero,.section,footer{padding:40px}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">Furniro</div>
+  <nav>
+    <a>Home</a>
+    <a>Shop</a>
+    <a>About</a>
+    <a>Contact</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <h1>FURNITURE <span>Landing Page</span></h1>
+    <p>Premium furniture crafted with modern design and comfort.</p>
+    <button>Explore More</button>
+  </div>
+
+  <div class="hero-right">
+    <h3 style="color:var(--primary)">New Arrival</h3>
+    <h2>Discover Our New Collection</h2>
+    <p>Lorem ipsum dolor sit amet.</p>
+    <button style="margin-top:12px">Buy Now</button>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section class="section">
+  <h2>Our Products</h2>
+  <p>High quality furniture for modern living</p>
+
+  <div class="products">
+
+    <div class="product">
+      <span class="badge sale">-30%</span>
+      <img src="https://images.unsplash.com/photo-1582582621959-48d27397dc69">
+      <div class="product-info">
+        <h4>Syltherine</h4>
+        <p class="desc">Stylish cafe chair</p>
+        <div class="price-row">
+          <span class="price">Rp 2.500.000</span>
+          <span class="old">Rp 3.500.000</span>
+        </div>
+      </div>
+      <div class="product-overlay">
+        <button>Add to Cart</button>
+        <div class="overlay-links">
+          <span>♡ Wishlist</span>
+          <span>⇄ Compare</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="product">
+      <span class="badge new">New</span>
+      <img src="https://images.unsplash.com/photo-1505691938895-1758d7feb511">
+      <div class="product-info">
+        <h4>Leviosa</h4>
+        <p class="desc">Luxury sofa</p>
+        <div class="price-row">
+          <span class="price">Rp 2.500.000</span>
+        </div>
+      </div>
+      <div class="product-overlay">
+        <button>Add to Cart</button>
+        <div class="overlay-links">
+          <span>♡ Wishlist</span>
+          <span>⇄ Compare</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="product">
+      <span class="badge sale">-50%</span>
+      <img src="https://images.unsplash.com/photo-1583845112203-29329902332e">
+      <div class="product-info">
+        <h4>Lolito</h4>
+        <p class="desc">Luxury big sofa</p>
+        <div class="price-row">
+          <span class="price">Rp 7.000.000</span>
+          <span class="old">Rp 14.000.000</span>
+        </div>
+      </div>
+      <div class="product-overlay">
+        <button>Add to Cart</button>
+        <div class="overlay-links">
+          <span>♡ Wishlist</span>
+          <span>⇄ Compare</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="product">
+      <span class="badge new">New</span>
+      <img src="https://images.unsplash.com/photo-1567016376408-0226e4d0c1ea">
+      <div class="product-info">
+        <h4>Respira</h4>
+        <p class="desc">Outdoor bar table</p>
+        <div class="price-row">
+          <span class="price">Rp 500.000</span>
+        </div>
+      </div>
+      <div class="product-overlay">
+        <button>Add to Cart</button>
+        <div class="overlay-links">
+          <span>♡ Wishlist</span>
+          <span>⇄ Compare</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  © 2025 Furniro Furniture Store
+</footer>
+
+</body>
+</html>
