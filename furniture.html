@@ -3,32 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ShopEase - Premium Online Shopping</title>
+    <title>HomeHaven - Premium Furniture & Home Decor</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Montserrat:wght@700;800;900&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Montserrat:wght@700;800;900&family=Playfair+Display:wght@700;800&family=Cormorant+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #ff3e6c;
-            --primary-dark: #e2335f;
-            --primary-light: #ffe6ec;
-            --secondary: #2a2a2a;
-            --secondary-light: #3a3a3a;
-            --accent: #7c4dff;
-            --accent-light: #9a7cff;
-            --light-bg: #f8f9fa;
-            --light-bg-2: #f0f2f5;
-            --dark-text: #222;
-            --medium-text: #555;
-            --light-text: #777;
-            --border-color: #eaeaea;
-            --shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
-            --shadow-hover: 0 15px 40px rgba(0, 0, 0, 0.15);
-            --shadow-light: 0 2px 10px rgba(0, 0, 0, 0.05);
-            --radius: 12px;
-            --radius-sm: 8px;
-            --radius-lg: 20px;
+            --primary: #8B7355; /* Warm brown */
+            --primary-dark: #6B5A45;
+            --primary-light: #D4BFA8;
+            --secondary: #2C3E2F; /* Forest green */
+            --secondary-light: #3A4F3E;
+            --accent: #A67C52; /* Gold/copper */
+            --accent-light: #C9A87C;
+            --neutral-light: #F8F5F1;
+            --neutral-medium: #E8E2D9;
+            --neutral-dark: #3A3329;
+            --text-dark: #2C2C2C;
+            --text-medium: #5A5A5A;
+            --text-light: #8A8A8A;
+            --border-color: #D8D1C7;
+            --shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            --shadow-hover: 0 15px 40px rgba(0, 0, 0, 0.1);
+            --shadow-light: 0 2px 10px rgba(0, 0, 0, 0.03);
+            --radius: 10px;
+            --radius-sm: 6px;
+            --radius-lg: 16px;
             --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
             --transition-fast: all 0.2s ease;
         }
@@ -45,7 +46,7 @@
 
         body {
             font-family: 'Poppins', sans-serif;
-            color: var(--dark-text);
+            color: var(--text-dark);
             line-height: 1.6;
             background-color: #fff;
             overflow-x: hidden;
@@ -91,7 +92,7 @@
         }
 
         .offer-highlight {
-            color: #ffd166;
+            color: var(--primary-light);
             font-weight: 700;
             position: relative;
             padding: 0 5px;
@@ -104,7 +105,7 @@
             left: 0;
             width: 100%;
             height: 2px;
-            background-color: #ffd166;
+            background-color: var(--primary-light);
             border-radius: 2px;
         }
 
@@ -123,17 +124,18 @@
         }
 
         .logo {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 2.5rem;
-            font-weight: 900;
-            color: var(--primary);
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: var(--secondary);
             text-decoration: none;
             display: flex;
             align-items: center;
+            letter-spacing: 1px;
         }
 
         .logo span {
-            color: var(--secondary);
+            color: var(--primary);
             position: relative;
         }
 
@@ -150,11 +152,12 @@
 
         .logo-tagline {
             font-size: 0.8rem;
-            color: var(--medium-text);
+            color: var(--text-medium);
             font-weight: 500;
             letter-spacing: 1px;
             position: relative;
             padding-left: 10px;
+            font-style: italic;
         }
 
         .logo-tagline::before {
@@ -168,7 +171,7 @@
             display: flex;
             list-style: none;
             gap: 5px;
-            background-color: var(--light-bg);
+            background-color: var(--neutral-light);
             padding: 8px;
             border-radius: 50px;
         }
@@ -179,7 +182,7 @@
 
         .main-nav a {
             text-decoration: none;
-            color: var(--dark-text);
+            color: var(--text-dark);
             font-weight: 500;
             font-size: 0.95rem;
             transition: var(--transition-fast);
@@ -198,7 +201,7 @@
         .main-nav a.active {
             background-color: var(--primary);
             color: white;
-            box-shadow: 0 5px 15px rgba(255, 62, 108, 0.3);
+            box-shadow: 0 5px 15px rgba(139, 115, 85, 0.3);
         }
 
         .main-nav a.active::after {
@@ -230,7 +233,7 @@
             width: 280px;
             font-size: 0.95rem;
             transition: var(--transition);
-            background-color: var(--light-bg);
+            background-color: var(--neutral-light);
         }
 
         .search-container input:focus {
@@ -238,7 +241,7 @@
             border-color: var(--primary);
             background-color: white;
             width: 320px;
-            box-shadow: 0 0 0 3px rgba(255, 62, 108, 0.1);
+            box-shadow: 0 0 0 3px rgba(139, 115, 85, 0.1);
         }
 
         .search-icon {
@@ -246,7 +249,7 @@
             left: 18px;
             top: 50%;
             transform: translateY(-50%);
-            color: var(--light-text);
+            color: var(--text-light);
             pointer-events: none;
         }
 
@@ -298,19 +301,19 @@
             cursor: pointer;
             transition: var(--transition);
             font-size: 0.95rem;
-            box-shadow: 0 5px 15px rgba(255, 62, 108, 0.3);
+            box-shadow: 0 5px 15px rgba(139, 115, 85, 0.3);
             letter-spacing: 0.5px;
         }
 
         .signup-btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(255, 62, 108, 0.4);
+            box-shadow: 0 8px 20px rgba(139, 115, 85, 0.4);
         }
 
         /* Hero Section */
         .hero-section {
             padding: 100px 0 80px;
-            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+            background: linear-gradient(135deg, var(--neutral-light) 0%, #ffffff 100%);
             position: relative;
             overflow: hidden;
         }
@@ -322,7 +325,7 @@
             right: -100px;
             width: 600px;
             height: 600px;
-            background: radial-gradient(circle, rgba(255, 62, 108, 0.08) 0%, rgba(255, 62, 108, 0) 70%);
+            background: radial-gradient(circle, rgba(139, 115, 85, 0.08) 0%, rgba(139, 115, 85, 0) 70%);
             border-radius: 50%;
             z-index: 0;
         }
@@ -334,7 +337,7 @@
             left: -100px;
             width: 500px;
             height: 500px;
-            background: radial-gradient(circle, rgba(124, 77, 255, 0.08) 0%, rgba(124, 77, 255, 0) 70%);
+            background: radial-gradient(circle, rgba(44, 62, 47, 0.08) 0%, rgba(44, 62, 47, 0) 70%);
             border-radius: 50%;
             z-index: 0;
         }
@@ -362,7 +365,7 @@
             font-weight: 600;
             font-size: 0.9rem;
             margin-bottom: 20px;
-            box-shadow: 0 5px 15px rgba(124, 77, 255, 0.3);
+            box-shadow: 0 5px 15px rgba(166, 124, 82, 0.3);
             letter-spacing: 1px;
         }
 
@@ -388,13 +391,13 @@
             left: 0;
             width: 100%;
             height: 8px;
-            background-color: rgba(255, 62, 108, 0.2);
+            background-color: rgba(139, 115, 85, 0.2);
             z-index: -1;
         }
 
         .hero-subtitle {
             font-size: 1.2rem;
-            color: var(--medium-text);
+            color: var(--text-medium);
             margin-bottom: 35px;
             max-width: 500px;
         }
@@ -422,12 +425,12 @@
         .hero-btn.primary {
             background: linear-gradient(135deg, var(--primary), var(--primary-dark));
             color: white;
-            box-shadow: 0 10px 25px rgba(255, 62, 108, 0.3);
+            box-shadow: 0 10px 25px rgba(139, 115, 85, 0.3);
         }
 
         .hero-btn.primary:hover {
             transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(255, 62, 108, 0.4);
+            box-shadow: 0 15px 35px rgba(139, 115, 85, 0.4);
         }
 
         .hero-btn.secondary {
@@ -462,7 +465,7 @@
 
         .stat-label {
             font-size: 0.9rem;
-            color: var(--medium-text);
+            color: var(--text-medium);
             font-weight: 500;
         }
 
@@ -523,7 +526,7 @@
         }
 
         .section-title {
-            font-family: 'Montserrat', sans-serif;
+            font-family: 'Playfair Display', serif;
             font-size: 2.8rem;
             font-weight: 800;
             color: var(--secondary);
@@ -544,7 +547,7 @@
 
         .section-subtitle {
             font-size: 1.1rem;
-            color: var(--medium-text);
+            color: var(--text-medium);
             max-width: 600px;
             margin-top: 10px;
         }
@@ -569,7 +572,7 @@
 
         .categories-section {
             padding: 80px 0;
-            background-color: var(--light-bg);
+            background-color: var(--neutral-light);
         }
 
         .categories-grid {
@@ -591,6 +594,7 @@
             display: block;
             position: relative;
             overflow: hidden;
+            border: 1px solid var(--border-color);
         }
 
         .category-card::before {
@@ -635,7 +639,7 @@
 
         .category-count {
             font-size: 0.9rem;
-            color: var(--light-text);
+            color: var(--text-light);
             font-weight: 500;
         }
 
@@ -652,7 +656,7 @@
             left: 0;
             width: 100%;
             height: 150px;
-            background: linear-gradient(to bottom, var(--light-bg) 0%, rgba(248, 249, 250, 0) 100%);
+            background: linear-gradient(to bottom, var(--neutral-light) 0%, rgba(248, 245, 241, 0) 100%);
             z-index: -1;
         }
 
@@ -662,7 +666,7 @@
             margin-bottom: 50px;
             flex-wrap: wrap;
             gap: 10px;
-            background-color: var(--light-bg);
+            background-color: var(--neutral-light);
             padding: 10px;
             border-radius: 50px;
             max-width: 800px;
@@ -675,7 +679,7 @@
             border: none;
             padding: 12px 28px;
             font-weight: 600;
-            color: var(--medium-text);
+            color: var(--text-medium);
             cursor: pointer;
             transition: var(--transition);
             border-radius: 50px;
@@ -701,6 +705,7 @@
             box-shadow: var(--shadow);
             transition: var(--transition);
             position: relative;
+            border: 1px solid var(--border-color);
         }
 
         .product-card:hover {
@@ -726,15 +731,15 @@
         }
 
         .product-badge.new {
-            background: linear-gradient(90deg, var(--accent), var(--accent-light));
+            background: linear-gradient(90deg, var(--secondary), var(--secondary-light));
         }
 
         .product-badge.hot {
-            background: linear-gradient(90deg, #ff9a3c, #ff6b6b);
+            background: linear-gradient(90deg, var(--accent), #C9A87C);
         }
 
         .product-badge.bestseller {
-            background: linear-gradient(90deg, #36d1dc, #5b86e5);
+            background: linear-gradient(90deg, #8B7355, #A67C52);
         }
 
         .product-image-container {
@@ -799,7 +804,7 @@
 
         .product-category {
             font-size: 0.85rem;
-            color: var(--light-text);
+            color: var(--text-light);
             margin-bottom: 8px;
             font-weight: 500;
             text-transform: uppercase;
@@ -831,7 +836,7 @@
 
         .rating-count {
             font-size: 0.85rem;
-            color: var(--light-text);
+            color: var(--text-light);
         }
 
         .product-price {
@@ -848,7 +853,7 @@
 
         .original-price {
             font-size: 1rem;
-            color: var(--light-text);
+            color: var(--text-light);
             text-decoration: line-through;
             margin-left: 10px;
         }
@@ -896,6 +901,77 @@
             color: var(--primary) !important;
         }
 
+        /* Room Inspiration Section */
+        .inspiration-section {
+            padding: 80px 0;
+            background-color: var(--neutral-light);
+        }
+
+        .inspiration-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .inspiration-card {
+            border-radius: var(--radius);
+            overflow: hidden;
+            position: relative;
+            height: 400px;
+            transition: var(--transition);
+        }
+
+        .inspiration-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .inspiration-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .inspiration-card:hover .inspiration-image {
+            transform: scale(1.05);
+        }
+
+        .inspiration-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 30px;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            color: white;
+        }
+
+        .inspiration-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .inspiration-btn {
+            margin-top: 15px;
+            background-color: white;
+            color: var(--secondary);
+            border: none;
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .inspiration-btn:hover {
+            background-color: var(--primary);
+            color: white;
+            transform: translateY(-3px);
+        }
+
         /* Banner Section */
         .banner-section {
             padding: 80px 0;
@@ -931,7 +1007,7 @@
         }
 
         .banner-title {
-            font-family: 'Montserrat', sans-serif;
+            font-family: 'Playfair Display', serif;
             font-size: 2.8rem;
             font-weight: 800;
             line-height: 1.2;
@@ -990,13 +1066,13 @@
         /* Brands Section */
         .brands-section {
             padding: 60px 0;
-            background-color: var(--light-bg-2);
+            background-color: white;
         }
 
         .brands-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 30px;
+            gap: 40px;
             align-items: center;
         }
 
@@ -1006,14 +1082,19 @@
             align-items: center;
             justify-content: center;
             filter: grayscale(100%);
-            opacity: 0.6;
+            opacity: 0.7;
             transition: var(--transition);
+            padding: 15px;
+            background-color: var(--neutral-light);
+            border-radius: var(--radius-sm);
+            box-shadow: var(--shadow-light);
         }
 
         .brand-logo:hover {
             filter: grayscale(0%);
             opacity: 1;
             transform: translateY(-5px);
+            box-shadow: var(--shadow);
         }
 
         .brand-logo img {
@@ -1025,7 +1106,7 @@
         /* Newsletter Section */
         .newsletter-section {
             padding: 100px 0;
-            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+            background: linear-gradient(135deg, var(--neutral-light) 0%, #ffffff 100%);
         }
 
         .newsletter-container {
@@ -1035,7 +1116,7 @@
         }
 
         .newsletter-title {
-            font-family: 'Montserrat', sans-serif;
+            font-family: 'Playfair Display', serif;
             font-size: 2.8rem;
             font-weight: 800;
             margin-bottom: 20px;
@@ -1044,7 +1125,7 @@
 
         .newsletter-subtitle {
             font-size: 1.1rem;
-            color: var(--medium-text);
+            color: var(--text-medium);
             margin-bottom: 40px;
             max-width: 600px;
             margin-left: auto;
@@ -1087,7 +1168,7 @@
 
         .newsletter-note {
             font-size: 0.85rem;
-            color: var(--light-text);
+            color: var(--text-light);
         }
 
         /* Footer */
@@ -1109,6 +1190,7 @@
             margin-bottom: 25px;
             position: relative;
             padding-bottom: 15px;
+            font-family: 'Playfair Display', serif;
         }
 
         .footer-column h3::after {
@@ -1123,9 +1205,9 @@
         }
 
         .footer-logo {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 2rem;
-            font-weight: 900;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
             color: white;
             margin-bottom: 15px;
             display: block;
@@ -1344,6 +1426,10 @@
                 gap: 20px;
             }
             
+            .inspiration-grid {
+                grid-template-columns: 1fr;
+            }
+            
             .banner-container {
                 padding: 40px 30px;
             }
@@ -1397,47 +1483,8 @@
             }
             
             .logo {
-                font-size: 2rem;
+                font-size: 2.2rem;
             }
-                    /* Brands Section */
-        .brands-section {
-            padding: 60px 0;
-            background-color: var(--light-bg-2);
-        }
-
-        .brands-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 40px;
-            align-items: center;
-        }
-
-        .brand-logo {
-            height: 60px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            filter: grayscale(100%);
-            opacity: 0.7;
-            transition: var(--transition);
-            padding: 15px;
-            background-color: white;
-            border-radius: var(--radius-sm);
-            box-shadow: var(--shadow-light);
-        }
-
-        .brand-logo:hover {
-            filter: grayscale(0%);
-            opacity: 1;
-            transform: translateY(-5px);
-            box-shadow: var(--shadow);
-        }
-
-        .brand-logo img {
-            max-height: 100%;
-            max-width: 100%;
-            object-fit: contain;
-        }
             
             .logo-tagline {
                 font-size: 0.7rem;
@@ -1453,9 +1500,9 @@
     <!-- Top Bar -->
     <div class="top-bar">
         <div class="container top-bar-content">
-            <div class="offer-text">🎉 Sign up now and get an extra <span class="offer-highlight">10% OFF</span> on your first order!</div>
+            <div class="offer-text">🎉 Spring Sale: Up to <span class="offer-highlight">50% OFF</span> on select furniture!</div>
             <div class="top-bar-actions">
-                <a href="#newsletter" class="signup-btn">SIGN UP</a>
+                <a href="#newsletter" class="signup-btn">GET OFFER</a>
             </div>
         </div>
     </div>
@@ -1464,25 +1511,25 @@
     <header id="header">
         <div class="container header-container">
             <div class="logo-container">
-                <a href="#" class="logo">SHOP<span>EASE</span></a>
-                <div class="logo-tagline">PREMIUM SHOPPING</div>
+                <a href="#" class="logo">Home<span>Haven</span></a>
+                <div class="logo-tagline">PREMIUM FURNISHINGS</div>
             </div>
             
             <ul class="main-nav">
-                <li><a href="#" class="active">ALL CATEGORIES</a></li>
-                <li><a href="#new-arrivals">NEW ARRIVAL</a></li>
+                <li><a href="#" class="active">ALL FURNITURE</a></li>
+                <li><a href="#living-room">LIVING ROOM</a></li>
+                <li><a href="#bedroom">BEDROOM</a></li>
+                <li><a href="#dining">DINING</a></li>
+                <li><a href="#office">OFFICE</a></li>
+                <li><a href="#decor">HOME DECOR</a></li>
+                <li><a href="#outdoor">OUTDOOR</a></li>
                 <li><a href="#sale">SALE</a></li>
-                <li><a href="#women">WOMEN</a></li>
-                <li><a href="#men">MEN</a></li>
-                <li><a href="#accessories">ACCESSORIES</a></li>
-                <li><a href="#blog">BLOG</a></li>
-                <li><a href="#contact">CONTACT US</a></li>
             </ul>
             
             <div class="nav-actions">
                 <div class="search-container">
                     <i class="fas fa-search search-icon"></i>
-                    <input type="text" placeholder="Search">
+                    <input type="text" placeholder="Search furniture, decor, brands...">
                 </div>
                 
                 <div class="action-icons">
@@ -1494,11 +1541,11 @@
                     </div>
                     <div class="action-icon">
                         <i class="fas fa-shopping-bag"></i>
-                        <span class="cart-count">3</span>
+                        <span class="cart-count">2</span>
                     </div>
                 </div>
                 
-                <a href="#newsletter" class="signup-btn">SIGN UP & GET 50% OFF</a>
+                <a href="#newsletter" class="signup-btn">GET CATALOG</a>
             </div>
         </div>
     </header>
@@ -1508,55 +1555,55 @@
         <div class="container">
             <div class="hero-content">
                 <div class="hero-text">
-                    <div class="hero-badge">🔥 BIG SUMMER SALE IS HERE</div>
-                    <h1 class="hero-title">Get Up To <span>50% OFF</span> On New Arrivals</h1>
-                    <p class="hero-subtitle">Discover the latest fashion trends, premium electronics, and lifestyle products at unbeatable prices. Limited time offer!</p>
+                    <div class="hero-badge">🏡 SPRING COLLECTION LAUNCH</div>
+                    <h1 class="hero-title">Transform Your <span>Home</span> With Premium Furniture</h1>
+                    <p class="hero-subtitle">Discover handcrafted furniture and elegant home decor that combines timeless design with modern comfort. Curated by interior designers.</p>
                     
                     <div class="hero-actions">
                         <button class="hero-btn primary">
-                            <i class="fas fa-bolt"></i> SHOP NOW
+                            <i class="fas fa-couch"></i> SHOP COLLECTION
                         </button>
                         <button class="hero-btn secondary">
-                            <i class="fas fa-play-circle"></i> WATCH VIDEO
+                            <i class="fas fa-play-circle"></i> DESIGN CONSULTATION
                         </button>
                     </div>
                     
                     <div class="hero-stats">
                         <div class="stat-item">
-                            <div class="stat-value">10K+</div>
-                            <div class="stat-label">Happy Customers</div>
+                            <div class="stat-value">15K+</div>
+                            <div class="stat-label">Happy Homes</div>
                         </div>
                         <div class="stat-item">
                             <div class="stat-value">500+</div>
-                            <div class="stat-label">Premium Brands</div>
+                            <div class="stat-label">Artisan Brands</div>
                         </div>
                         <div class="stat-item">
-                            <div class="stat-value">24/7</div>
-                            <div class="stat-label">Customer Support</div>
+                            <div class="stat-value">5-Star</div>
+                            <div class="stat-label">Rated Service</div>
                         </div>
                     </div>
                 </div>
                 
                 <div class="hero-image">
-                    <img src="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80" alt="Fashion shopping" class="hero-img-main">
+                    <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1858&q=80" alt="Luxury living room furniture" class="hero-img-main">
                     
                     <div class="floating-badge">
                         <div class="badge-icon">
-                            <i class="fas fa-shipping-fast fa-2x" style="color: var(--primary);"></i>
+                            <i class="fas fa-truck fa-2x" style="color: var(--primary);"></i>
                         </div>
                         <div class="badge-text">
                             <div class="badge-title">Free Shipping</div>
-                            <div class="badge-subtitle">On orders over $50</div>
+                            <div class="badge-subtitle">On orders over $499</div>
                         </div>
                     </div>
                     
                     <div class="floating-badge">
                         <div class="badge-icon">
-                            <i class="fas fa-shield-alt fa-2x" style="color: var(--accent);"></i>
+                            <i class="fas fa-calendar-check fa-2x" style="color: var(--accent);"></i>
                         </div>
                         <div class="badge-text">
-                            <div class="badge-title">Secure Payment</div>
-                            <div class="badge-subtitle">100% Protected</div>
+                            <div class="badge-title">Free Assembly</div>
+                            <div class="badge-subtitle">With white glove service</div>
                         </div>
                     </div>
                 </div>
@@ -1569,52 +1616,52 @@
         <div class="container">
             <div class="section-header">
                 <div>
-                    <h2 class="section-title">Explore Popular Categories</h2>
-                    <p class="section-subtitle">Browse through our curated collection of premium products across all categories</p>
+                    <h2 class="section-title">Shop By Category</h2>
+                    <p class="section-subtitle">Explore our curated collection of premium furniture and home decor for every room</p>
                 </div>
-                <a href="#all-categories" class="view-all">VIEW ALL <i class="fas fa-arrow-right"></i></a>
+                <a href="#all-categories" class="view-all">VIEW ALL CATEGORIES <i class="fas fa-arrow-right"></i></a>
             </div>
             
             <div class="categories-grid">
-                <a href="#clothing" class="category-card">
-                    <i class="fas fa-tshirt category-icon"></i>
-                    <h3>Clothing & Apparel</h3>
-                    <div class="category-count">1,250+ Products</div>
+                <a href="#living-room" class="category-card">
+                    <i class="fas fa-couch category-icon"></i>
+                    <h3>Living Room</h3>
+                    <div class="category-count">320+ Products</div>
                 </a>
-                <a href="#shoes" class="category-card">
-                    <i class="fas fa-shoe-prints category-icon"></i>
-                    <h3>Shoes & Footwear</h3>
-                    <div class="category-count">850+ Products</div>
+                <a href="#bedroom" class="category-card">
+                    <i class="fas fa-bed category-icon"></i>
+                    <h3>Bedroom</h3>
+                    <div class="category-count">280+ Products</div>
                 </a>
-                <a href="#accessories" class="category-card">
-                    <i class="fas fa-gem category-icon"></i>
-                    <h3>Accessories</h3>
-                    <div class="category-count">620+ Products</div>
+                <a href="#dining" class="category-card">
+                    <i class="fas fa-utensils category-icon"></i>
+                    <h3>Dining Room</h3>
+                    <div class="category-count">195+ Products</div>
                 </a>
-                <a href="#electronics" class="category-card">
-                    <i class="fas fa-laptop category-icon"></i>
-                    <h3>Electronics</h3>
-                    <div class="category-count">1,500+ Products</div>
+                <a href="#office" class="category-card">
+                    <i class="fas fa-desktop category-icon"></i>
+                    <h3>Home Office</h3>
+                    <div class="category-count">150+ Products</div>
                 </a>
-                <a href="#cosmetics" class="category-card">
+                <a href="#lighting" class="category-card">
+                    <i class="fas fa-lightbulb category-icon"></i>
+                    <h3>Lighting</h3>
+                    <div class="category-count">220+ Products</div>
+                </a>
+                <a href="#decor" class="category-card">
                     <i class="fas fa-palette category-icon"></i>
-                    <h3>Beauty & Cosmetics</h3>
-                    <div class="category-count">430+ Products</div>
+                    <h3>Home Decor</h3>
+                    <div class="category-count">410+ Products</div>
                 </a>
-                <a href="#home" class="category-card">
-                    <i class="fas fa-home category-icon"></i>
-                    <h3>Home & Living</h3>
-                    <div class="category-count">720+ Products</div>
+                <a href="#outdoor" class="category-card">
+                    <i class="fas fa-umbrella-beach category-icon"></i>
+                    <h3>Outdoor</h3>
+                    <div class="category-count">180+ Products</div>
                 </a>
-                <a href="#sports" class="category-card">
-                    <i class="fas fa-dumbbell category-icon"></i>
-                    <h3>Sports & Fitness</h3>
-                    <div class="category-count">380+ Products</div>
-                </a>
-                <a href="#kids" class="category-card">
-                    <i class="fas fa-child category-icon"></i>
-                    <h3>Kids & Toys</h3>
-                    <div class="category-count">560+ Products</div>
+                <a href="#storage" class="category-card">
+                    <i class="fas fa-box-open category-icon"></i>
+                    <h3>Storage</h3>
+                    <div class="category-count">175+ Products</div>
                 </a>
             </div>
         </div>
@@ -1625,27 +1672,27 @@
         <div class="container">
             <div class="section-header">
                 <div>
-                    <h2 class="section-title">Today's Best Deals</h2>
-                    <p class="section-subtitle">Handpicked selection of premium products with exclusive discounts</p>
+                    <h2 class="section-title">Featured Collection</h2>
+                    <p class="section-subtitle">Handpicked furniture pieces that combine craftsmanship with contemporary design</p>
                 </div>
-                <a href="#all-products" class="view-all">VIEW ALL <i class="fas fa-arrow-right"></i></a>
+                <a href="#all-products" class="view-all">VIEW ALL PRODUCTS <i class="fas fa-arrow-right"></i></a>
             </div>
             
             <div class="products-filter">
-                <button class="filter-btn active">All Products</button>
-                <button class="filter-btn">New Arrivals</button>
+                <button class="filter-btn active">All Furniture</button>
                 <button class="filter-btn">Best Sellers</button>
-                <button class="filter-btn">Trending Now</button>
+                <button class="filter-btn">New Arrivals</button>
                 <button class="filter-btn">On Sale</button>
-                <button class="filter-btn">Under $50</button>
+                <button class="filter-btn">Designer Picks</button>
+                <button class="filter-btn">Sustainable</button>
             </div>
             
             <div class="products-grid">
                 <!-- Product 1 -->
                 <div class="product-card">
-                    <div class="product-badge sale">50% OFF</div>
+                    <div class="product-badge sale">25% OFF</div>
                     <div class="product-image-container">
-                        <img src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1064&q=80" alt="Nike Air Max Shoes" class="product-image">
+                        <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80" alt="Modern Leather Sofa" class="product-image">
                         <div class="product-actions">
                             <button class="product-action-btn"><i class="far fa-heart"></i></button>
                             <button class="product-action-btn"><i class="fas fa-eye"></i></button>
@@ -1653,8 +1700,8 @@
                         </div>
                     </div>
                     <div class="product-info">
-                        <div class="product-category">Shoes</div>
-                        <h3 class="product-title">Nike Air Max 270 React</h3>
+                        <div class="product-category">Living Room · Sofas</div>
+                        <h3 class="product-title">Modern Genuine Leather 3-Seater Sofa</h3>
                         <div class="product-rating">
                             <div class="stars">
                                 <i class="fas fa-star"></i>
@@ -1663,12 +1710,12 @@
                                 <i class="fas fa-star"></i>
                                 <i class="fas fa-star-half-alt"></i>
                             </div>
-                            <span class="rating-count">(128)</span>
+                            <span class="rating-count">(142)</span>
                         </div>
                         <div class="product-price">
-                            <span class="current-price">$129.99</span>
-                            <span class="original-price">$259.99</span>
-                            <span class="discount-percent">-50%</span>
+                            <span class="current-price">$1,299.99</span>
+                            <span class="original-price">$1,799.99</span>
+                            <span class="discount-percent">-25%</span>
                         </div>
                         <button class="btn"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
                     </div>
@@ -1678,7 +1725,7 @@
                 <div class="product-card">
                     <div class="product-badge new">NEW</div>
                     <div class="product-image-container">
-                        <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1099&q=80" alt="Apple Watch Series 8" class="product-image">
+                        <img src="https://images.unsplash.com/photo-1505693314120-0d443867891c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80" alt="Solid Wood Dining Table" class="product-image">
                         <div class="product-actions">
                             <button class="product-action-btn"><i class="far fa-heart"></i></button>
                             <button class="product-action-btn"><i class="fas fa-eye"></i></button>
@@ -1686,8 +1733,8 @@
                         </div>
                     </div>
                     <div class="product-info">
-                        <div class="product-category">Electronics</div>
-                        <h3 class="product-title">Apple Watch Series 8 GPS</h3>
+                        <div class="product-category">Dining Room · Tables</div>
+                        <h3 class="product-title">Solid Oak Extendable Dining Table</h3>
                         <div class="product-rating">
                             <div class="stars">
                                 <i class="fas fa-star"></i>
@@ -1699,7 +1746,7 @@
                             <span class="rating-count">(89)</span>
                         </div>
                         <div class="product-price">
-                            <span class="current-price">$399.00</span>
+                            <span class="current-price">$899.00</span>
                         </div>
                         <button class="btn"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
                     </div>
@@ -1709,7 +1756,7 @@
                 <div class="product-card">
                     <div class="product-badge hot">HOT</div>
                     <div class="product-image-container">
-                        <img src="https://images.unsplash.com/photo-1595777457583-95e059d581b8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80" alt="Leather Jacket" class="product-image">
+                        <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1858&q=80" alt="King Size Bed Frame" class="product-image">
                         <div class="product-actions">
                             <button class="product-action-btn"><i class="far fa-heart"></i></button>
                             <button class="product-action-btn"><i class="fas fa-eye"></i></button>
@@ -1717,8 +1764,8 @@
                         </div>
                     </div>
                     <div class="product-info">
-                        <div class="product-category">Clothing</div>
-                        <h3 class="product-title">Men's Premium Leather Jacket</h3>
+                        <div class="product-category">Bedroom · Beds</div>
+                        <h3 class="product-title">Upholstered King Size Bed Frame with Storage</h3>
                         <div class="product-rating">
                             <div class="stars">
                                 <i class="fas fa-star"></i>
@@ -1730,9 +1777,9 @@
                             <span class="rating-count">(245)</span>
                         </div>
                         <div class="product-price">
-                            <span class="current-price">$189.99</span>
-                            <span class="original-price">$299.99</span>
-                            <span class="discount-percent">-37%</span>
+                            <span class="current-price">$1,499.99</span>
+                            <span class="original-price">$1,999.99</span>
+                            <span class="discount-percent">-25%</span>
                         </div>
                         <button class="btn"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
                     </div>
@@ -1742,7 +1789,7 @@
                 <div class="product-card">
                     <div class="product-badge bestseller">BESTSELLER</div>
                     <div class="product-image-container">
-                        <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Wireless Headphones" class="product-image">
+                        <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1858&q=80" alt="Bookshelf" class="product-image">
                         <div class="product-actions">
                             <button class="product-action-btn"><i class="far fa-heart"></i></button>
                             <button class="product-action-btn"><i class="fas fa-eye"></i></button>
@@ -1750,8 +1797,8 @@
                         </div>
                     </div>
                     <div class="product-info">
-                        <div class="product-category">Electronics</div>
-                        <h3 class="product-title">Sony WH-1000XM5 Wireless Headphones</h3>
+                        <div class="product-category">Living Room · Storage</div>
+                        <h3 class="product-title">Modern 5-Shelf Bookcase in Walnut Finish</h3>
                         <div class="product-rating">
                             <div class="stars">
                                 <i class="fas fa-star"></i>
@@ -1763,9 +1810,9 @@
                             <span class="rating-count">(312)</span>
                         </div>
                         <div class="product-price">
-                            <span class="current-price">$329.99</span>
-                            <span class="original-price">$399.99</span>
-                            <span class="discount-percent">-18%</span>
+                            <span class="current-price">$449.99</span>
+                            <span class="original-price">$599.99</span>
+                            <span class="discount-percent">-25%</span>
                         </div>
                         <button class="btn"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
                     </div>
@@ -1775,7 +1822,7 @@
                 <div class="product-card">
                     <div class="product-badge sale">30% OFF</div>
                     <div class="product-image-container">
-                        <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Women's Handbag" class="product-image">
+                        <img src="https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80" alt="Coffee Table" class="product-image">
                         <div class="product-actions">
                             <button class="product-action-btn"><i class="far fa-heart"></i></button>
                             <button class="product-action-btn"><i class="fas fa-eye"></i></button>
@@ -1783,8 +1830,8 @@
                         </div>
                     </div>
                     <div class="product-info">
-                        <div class="product-category">Accessories</div>
-                        <h3 class="product-title">Women's Leather Tote Handbag</h3>
+                        <div class="product-category">Living Room · Tables</div>
+                        <h3 class="product-title">Marble Top Coffee Table with Metal Base</h3>
                         <div class="product-rating">
                             <div class="stars">
                                 <i class="fas fa-star"></i>
@@ -1796,8 +1843,8 @@
                             <span class="rating-count">(156)</span>
                         </div>
                         <div class="product-price">
-                            <span class="current-price">$89.99</span>
-                            <span class="original-price">$129.99</span>
+                            <span class="current-price">$329.99</span>
+                            <span class="original-price">$469.99</span>
                             <span class="discount-percent">-30%</span>
                         </div>
                         <button class="btn"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
@@ -1808,7 +1855,7 @@
                 <div class="product-card">
                     <div class="product-badge new">NEW</div>
                     <div class="product-image-container">
-                        <img src="https://images.unsplash.com/photo-1572635196237-14b3f281503f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1180&q=80" alt="Ray-Ban Sunglasses" class="product-image">
+                        <img src="https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80" alt="Desk Chair" class="product-image">
                         <div class="product-actions">
                             <button class="product-action-btn"><i class="far fa-heart"></i></button>
                             <button class="product-action-btn"><i class="fas fa-eye"></i></button>
@@ -1816,8 +1863,8 @@
                         </div>
                     </div>
                     <div class="product-info">
-                        <div class="product-category">Accessories</div>
-                        <h3 class="product-title">Ray-Ban Aviator Classic Sunglasses</h3>
+                        <div class="product-category">Office · Chairs</div>
+                        <h3 class="product-title">Ergonomic Executive Office Chair</h3>
                         <div class="product-rating">
                             <div class="stars">
                                 <i class="fas fa-star"></i>
@@ -1829,7 +1876,7 @@
                             <span class="rating-count">(203)</span>
                         </div>
                         <div class="product-price">
-                            <span class="current-price">$154.99</span>
+                            <span class="current-price">$299.99</span>
                         </div>
                         <button class="btn"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
                     </div>
@@ -1839,7 +1886,7 @@
                 <div class="product-card">
                     <div class="product-badge sale">40% OFF</div>
                     <div class="product-image-container">
-                        <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Running Shoes" class="product-image">
+                        <img src="https://images.unsplash.com/photo-1616627561950-9f746e330187?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80" alt="Accent Chair" class="product-image">
                         <div class="product-actions">
                             <button class="product-action-btn"><i class="far fa-heart"></i></button>
                             <button class="product-action-btn"><i class="fas fa-eye"></i></button>
@@ -1847,8 +1894,8 @@
                         </div>
                     </div>
                     <div class="product-info">
-                        <div class="product-category">Shoes</div>
-                        <h3 class="product-title">Adidas Ultraboost 22 Running Shoes</h3>
+                        <div class="product-category">Living Room · Chairs</div>
+                        <h3 class="product-title">Velvet Accent Chair with Gold Legs</h3>
                         <div class="product-rating">
                             <div class="stars">
                                 <i class="fas fa-star"></i>
@@ -1860,8 +1907,8 @@
                             <span class="rating-count">(421)</span>
                         </div>
                         <div class="product-price">
-                            <span class="current-price">$119.99</span>
-                            <span class="original-price">$199.99</span>
+                            <span class="current-price">$349.99</span>
+                            <span class="original-price">$579.99</span>
                             <span class="discount-percent">-40%</span>
                         </div>
                         <button class="btn"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
@@ -1872,7 +1919,7 @@
                 <div class="product-card">
                     <div class="product-badge hot">HOT</div>
                     <div class="product-image-container">
-                        <img src="https://images.unsplash.com/photo-1546868871-7041f2a55e12?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1064&q=80" alt="Smart Watch" class="product-image">
+                        <img src="https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1931&q=80" alt="Dining Chairs" class="product-image">
                         <div class="product-actions">
                             <button class="product-action-btn"><i class="far fa-heart"></i></button>
                             <button class="product-action-btn"><i class="fas fa-eye"></i></button>
@@ -1880,8 +1927,8 @@
                         </div>
                     </div>
                     <div class="product-info">
-                        <div class="product-category">Electronics</div>
-                        <h3 class="product-title">Samsung Galaxy Watch 5 Pro</h3>
+                        <div class="product-category">Dining Room · Chairs</div>
+                        <h3 class="product-title">Set of 4 Modern Dining Chairs</h3>
                         <div class="product-rating">
                             <div class="stars">
                                 <i class="fas fa-star"></i>
@@ -1893,140 +1940,8 @@
                             <span class="rating-count">(178)</span>
                         </div>
                         <div class="product-price">
-                            <span class="current-price">$349.99</span>
-                            <span class="original-price">$449.99</span>
-                            <span class="discount-percent">-22%</span>
-                        </div>
-                        <button class="btn"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
-                    </div>
-                </div>
-                
-                <!-- Product 9 -->
-                <div class="product-card">
-                    <div class="product-badge sale">35% OFF</div>
-                    <div class="product-image-container">
-                        <img src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1036&q=80" alt="Casual Shirt" class="product-image">
-                        <div class="product-actions">
-                            <button class="product-action-btn"><i class="far fa-heart"></i></button>
-                            <button class="product-action-btn"><i class="fas fa-eye"></i></button>
-                            <button class="product-action-btn"><i class="fas fa-shopping-bag"></i></button>
-                        </div>
-                    </div>
-                    <div class="product-info">
-                        <div class="product-category">Clothing</div>
-                        <h3 class="product-title">Men's Casual Linen Shirt</h3>
-                        <div class="product-rating">
-                            <div class="stars">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star-half-alt"></i>
-                                <i class="far fa-star"></i>
-                            </div>
-                            <span class="rating-count">(94)</span>
-                        </div>
-                        <div class="product-price">
-                            <span class="current-price">$45.99</span>
-                            <span class="original-price">$70.99</span>
-                            <span class="discount-percent">-35%</span>
-                        </div>
-                        <button class="btn"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
-                    </div>
-                </div>
-                
-                <!-- Product 10 -->
-                <div class="product-card">
-                    <div class="product-badge bestseller">BESTSELLER</div>
-                    <div class="product-image-container">
-                        <img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Camera" class="product-image">
-                        <div class="product-actions">
-                            <button class="product-action-btn"><i class="far fa-heart"></i></button>
-                            <button class="product-action-btn"><i class="fas fa-eye"></i></button>
-                            <button class="product-action-btn"><i class="fas fa-shopping-bag"></i></button>
-                        </div>
-                    </div>
-                    <div class="product-info">
-                        <div class="product-category">Electronics</div>
-                        <h3 class="product-title">Sony Alpha A7 III Mirrorless Camera</h3>
-                        <div class="product-rating">
-                            <div class="stars">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                            <span class="rating-count">(267)</span>
-                        </div>
-                        <div class="product-price">
-                            <span class="current-price">$1,999.99</span>
-                            <span class="original-price">$2,199.99</span>
-                            <span class="discount-percent">-9%</span>
-                        </div>
-                        <button class="btn"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
-                    </div>
-                </div>
-                
-                <!-- Product 11 -->
-                <div class="product-card">
-                    <div class="product-badge new">NEW</div>
-                    <div class="product-image-container">
-                        <img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80" alt="Denim Jacket" class="product-image">
-                        <div class="product-actions">
-                            <button class="product-action-btn"><i class="far fa-heart"></i></button>
-                            <button class="product-action-btn"><i class="fas fa-eye"></i></button>
-                            <button class="product-action-btn"><i class="fas fa-shopping-bag"></i></button>
-                        </div>
-                    </div>
-                    <div class="product-info">
-                        <div class="product-category">Clothing</div>
-                        <h3 class="product-title">Women's Denim Jacket</h3>
-                        <div class="product-rating">
-                            <div class="stars">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star-half-alt"></i>
-                            </div>
-                            <span class="rating-count">(132)</span>
-                        </div>
-                        <div class="product-price">
-                            <span class="current-price">$65.99</span>
-                            <span class="original-price">$89.99</span>
-                            <span class="discount-percent">-27%</span>
-                        </div>
-                        <button class="btn"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
-                    </div>
-                </div>
-                
-                <!-- Product 12 -->
-                <div class="product-card">
-                    <div class="product-badge sale">25% OFF</div>
-                    <div class="product-image-container">
-                        <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1112&q=80" alt="Sports Shoes" class="product-image">
-                        <div class="product-actions">
-                            <button class="product-action-btn"><i class="far fa-heart"></i></button>
-                            <button class="product-action-btn"><i class="fas fa-eye"></i></button>
-                            <button class="product-action-btn"><i class="fas fa-shopping-bag"></i></button>
-                        </div>
-                    </div>
-                    <div class="product-info">
-                        <div class="product-category">Shoes</div>
-                        <h3 class="product-title">Puma RS-X Sports Shoes</h3>
-                        <div class="product-rating">
-                            <div class="stars">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="far fa-star"></i>
-                            </div>
-                            <span class="rating-count">(87)</span>
-                        </div>
-                        <div class="product-price">
-                            <span class="current-price">$74.99</span>
-                            <span class="original-price">$99.99</span>
+                            <span class="current-price">$599.99</span>
+                            <span class="original-price">$799.99</span>
                             <span class="discount-percent">-25%</span>
                         </div>
                         <button class="btn"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
@@ -2042,63 +1957,106 @@
         </div>
     </section>
 
+    <!-- Room Inspiration Section -->
+    <section class="inspiration-section">
+        <div class="container">
+            <div class="section-header">
+                <div>
+                    <h2 class="section-title">Room Inspiration</h2>
+                    <p class="section-subtitle">Get inspired by beautifully designed rooms and discover how to recreate the look</p>
+                </div>
+                <a href="#all-inspiration" class="view-all">VIEW ALL ROOMS <i class="fas fa-arrow-right"></i></a>
+            </div>
+            
+            <div class="inspiration-grid">
+                <div class="inspiration-card">
+                    <img src="https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80" alt="Modern Living Room" class="inspiration-image">
+                    <div class="inspiration-overlay">
+                        <h3 class="inspiration-title">Modern Living Room</h3>
+                        <p>Clean lines, neutral palette, and comfortable seating</p>
+                        <button class="inspiration-btn">SHOP THIS LOOK</button>
+                    </div>
+                </div>
+                
+                <div class="inspiration-card">
+                    <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1858&q=80" alt="Cozy Bedroom" class="inspiration-image">
+                    <div class="inspiration-overlay">
+                        <h3 class="inspiration-title">Cozy Bedroom</h3>
+                        <p>Warm textures, soft lighting, and serene atmosphere</p>
+                        <button class="inspiration-btn">SHOP THIS LOOK</button>
+                    </div>
+                </div>
+                
+                <div class="inspiration-card">
+                    <img src="https://images.unsplash.com/photo-1615876234886-fd9a39fda97f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1932&q=80" alt="Home Office" class="inspiration-image">
+                    <div class="inspiration-overlay">
+                        <h3 class="inspiration-title">Productive Home Office</h3>
+                        <p>Ergonomic furniture and organized workspace</p>
+                        <button class="inspiration-btn">SHOP THIS LOOK</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Banner Section -->
     <section class="banner-section" id="sale">
         <div class="container">
             <div class="banner-container">
                 <div class="banner-content">
                     <div class="hero-badge" style="margin-bottom: 20px;">LIMITED TIME OFFER</div>
-                    <h2 class="banner-title">End of Season Sale</h2>
-                    <p class="banner-subtitle">Up to 70% off on selected items. Don't miss out on the biggest sale of the year. Shop now before stocks run out!</p>
+                    <h2 class="banner-title">Spring Refresh Sale</h2>
+                    <p class="banner-subtitle">Up to 50% off on selected furniture collections. Redefine your living spaces with premium pieces at exceptional prices.</p>
                     <button class="banner-btn">
-                        <i class="fas fa-fire"></i> SHOP THE SALE
+                        <i class="fas fa-leaf"></i> SHOP THE SALE
                     </button>
                 </div>
                 <div class="banner-image">
-                    <img src="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80" alt="Sale Banner" class="banner-img">
+                    <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80" alt="Sale Banner" class="banner-img">
                 </div>
             </div>
         </div>
     </section>
 
-        <section class="brands-section">
-            <div class="container">
-                <h2 class="section-title" style="text-align: center; margin-bottom: 50px;">Trusted by Premium Brands</h2>
-                <div class="brands-grid">
-                    <div class="brand-logo">
-                        <img src="https://logos-world.net/wp-content/uploads/2020/04/Nike-Logo.png" alt="Nike">
-                    </div>
-                    <div class="brand-logo">
-                        <img src="https://logos-world.net/wp-content/uploads/2020/04/Adidas-Logo.png" alt="Adidas">
-                    </div>
-                    <div class="brand-logo">
-                        <img src="C:\Users\Shudhanshu\Downloads\download (3).png" alt="Apple">
-                    </div>
-                    <div class="brand-logo">
-                        <img src="https://logos-world.net/wp-content/uploads/2020/04/Sony-Logo.png" alt="Sony">
-                    </div>
-                    <div class="brand-logo">
-                        <img src="https://logos-world.net/wp-content/uploads/2020/06/Samsung-Logo.png" alt="Samsung">
-                    </div>
-                    <div class="brand-logo">
-                        <img src="https://logos-world.net/wp-content/uploads/2020/04/Puma-Logo.png" alt="Puma">
-                    </div>
-                    <div class="brand-logo">
-                        <img src="C:\Users\Shudhanshu\Downloads\download (1).png" alt="Ray-Ban">
-                    </div>
-                    <div class="brand-logo">
-                        <img src="C:\Users\Shudhanshu\Downloads\download (2).png" alt="Levi's">
-                    </div>
+    <!-- Brands Section -->
+    <section class="brands-section">
+        <div class="container">
+            <h2 class="section-title" style="text-align: center; margin-bottom: 50px;">Trusted Furniture Brands</h2>
+            <div class="brands-grid">
+                <div class="brand-logo">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/West_Elm_Logo.svg/2560px-West_Elm_Logo.svg.png" alt="West Elm">
+                </div>
+                <div class="brand-logo">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Crate_and_Barrel_logo.svg/2560px-Crate_and_Barrel_logo.svg.png" alt="Crate & Barrel">
+                </div>
+                <div class="brand-logo">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Room%26Board_Logo.svg/2560px-Room%26Board_Logo.svg.png" alt="Room & Board">
+                </div>
+                <div class="brand-logo">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Ethan_Allen_Logo.svg/2560px-Ethan_Allen_Logo.svg.png" alt="Ethan Allen">
+                </div>
+                <div class="brand-logo">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Restoration_Hardware_logo.svg/1200px-Restoration_Hardware_logo.svg.png" alt="Restoration Hardware">
+                </div>
+                <div class="brand-logo">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Pottery_Barn_logo.svg/2560px-Pottery_Barn_logo.svg.png" alt="Pottery Barn">
+                </div>
+                <div class="brand-logo">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/IKEA_logo.svg/2560px-IKEA_logo.svg.png" alt="IKEA">
+                </div>
+                <div class="brand-logo">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Article_Furniture_Logo.svg/1200px-Article_Furniture_Logo.svg.png" alt="Article">
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
     <!-- Newsletter Section -->
     <section class="newsletter-section" id="newsletter">
         <div class="container">
             <div class="newsletter-container">
-                <h2 class="newsletter-title">Stay In The Loop</h2>
-                <p class="newsletter-subtitle">Subscribe to our newsletter and be the first to know about exclusive deals, new arrivals, and fashion tips.</p>
+                <h2 class="newsletter-title">Design Inspiration Delivered</h2>
+                <p class="newsletter-subtitle">Subscribe to our newsletter for interior design tips, exclusive offers, and new collection announcements.</p>
                 <form class="newsletter-form">
                     <input type="email" placeholder="Enter your email address" required>
                     <button type="submit">SUBSCRIBE</button>
@@ -2113,38 +2071,38 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-column">
-                    <a href="#" class="footer-logo">SHOP<span style="color: var(--primary);">EASE</span></a>
+                    <a href="#" class="footer-logo">Home<span style="color: var(--primary);">Haven</span></a>
                     <div class="footer-about">
-                        <p>Your premier destination for premium shopping experience. We bring you the latest trends, highest quality products, and exceptional customer service.</p>
+                        <p>Your premier destination for premium furniture and home decor. We bring you handcrafted pieces that combine timeless design with modern comfort, creating spaces you'll love to live in.</p>
                     </div>
                     <div class="social-links">
-                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
                         <a href="#" class="social-link"><i class="fab fa-pinterest-p"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-houzz"></i></a>
                         <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
                     </div>
                 </div>
                 
                 <div class="footer-column">
-                    <h3>Quick Links</h3>
+                    <h3>Shop</h3>
                     <ul>
-                        <li><a href="#"><i class="fas fa-chevron-right"></i> Home</a></li>
-                        <li><a href="#new-arrivals"><i class="fas fa-chevron-right"></i> New Arrivals</a></li>
-                        <li><a href="#sale"><i class="fas fa-chevron-right"></i> Sale</a></li>
-                        <li><a href="#women"><i class="fas fa-chevron-right"></i> Women's Collection</a></li>
-                        <li><a href="#men"><i class="fas fa-chevron-right"></i> Men's Collection</a></li>
+                        <li><a href="#living-room"><i class="fas fa-chevron-right"></i> Living Room</a></li>
+                        <li><a href="#bedroom"><i class="fas fa-chevron-right"></i> Bedroom</a></li>
+                        <li><a href="#dining"><i class="fas fa-chevron-right"></i> Dining Room</a></li>
+                        <li><a href="#office"><i class="fas fa-chevron-right"></i> Home Office</a></li>
+                        <li><a href="#outdoor"><i class="fas fa-chevron-right"></i> Outdoor Furniture</a></li>
                     </ul>
                 </div>
                 
                 <div class="footer-column">
-                    <h3>Customer Service</h3>
+                    <h3>Services</h3>
                     <ul>
-                        <li><a href="#"><i class="fas fa-chevron-right"></i> Contact Us</a></li>
-                        <li><a href="#"><i class="fas fa-chevron-right"></i> FAQs</a></li>
-                        <li><a href="#"><i class="fas fa-chevron-right"></i> Shipping Policy</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Interior Design Consultation</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Free Room Planning</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> White Glove Delivery</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Assembly Service</a></li>
                         <li><a href="#"><i class="fas fa-chevron-right"></i> Returns & Exchanges</a></li>
-                        <li><a href="#"><i class="fas fa-chevron-right"></i> Privacy Policy</a></li>
                     </ul>
                 </div>
                 
@@ -2153,7 +2111,7 @@
                     <div class="contact-info">
                         <div class="contact-item">
                             <i class="fas fa-map-marker-alt"></i>
-                            <div>123 Fashion Street, New York, NY 10001</div>
+                            <div>123 Design District, San Francisco, CA 94107</div>
                         </div>
                         <div class="contact-item">
                             <i class="fas fa-phone"></i>
@@ -2161,18 +2119,18 @@
                         </div>
                         <div class="contact-item">
                             <i class="fas fa-envelope"></i>
-                            <div>support@shopease.com</div>
+                            <div>hello@homehaven.com</div>
                         </div>
                         <div class="contact-item">
                             <i class="fas fa-clock"></i>
-                            <div>Mon - Fri: 9:00 AM - 8:00 PM EST</div>
+                            <div>Mon - Sat: 10:00 AM - 8:00 PM PST</div>
                         </div>
                     </div>
                 </div>
             </div>
             
             <div class="copyright">
-                <p>&copy; 2023 ShopEase. All rights reserved. | Designed with <i class="fas fa-heart" style="color: var(--primary);"></i> for premium shopping experience</p>
+                <p>&copy; 2023 HomeHaven. All rights reserved. | Designed with <i class="fas fa-heart" style="color: var(--primary);"></i> for beautiful living spaces</p>
             </div>
         </div>
     </footer>

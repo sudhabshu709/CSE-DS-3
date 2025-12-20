@@ -1,0 +1,993 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Modern Website Navigation</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+    :root {
+        --primary-color: #4361ee;
+        --secondary-color: #3a0ca3;
+        --accent-color: #f72585;
+        --dark-bg: #1a1a2e;
+        --light-bg: #f8f9fa;
+        --gradient-primary: linear-gradient(135deg, #4361ee, #3a0ca3);
+        --gradient-accent: linear-gradient(135deg, #f72585, #b5179e);
+        --gradient-green: linear-gradient(135deg, #4cc9f0, #4361ee);
+        --gradient-blue: linear-gradient(135deg, #7209b7, #3a0ca3);
+        --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        --shadow-heavy: 0 20px 50px rgba(0, 0, 0, 0.15);
+        --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        --border-radius: 12px;
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: 'Poppins', sans-serif;
+        background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+        color: #333;
+    }
+
+    .container {
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .navigation-wrapper {
+        background: white;
+        border-radius: var(--border-radius);
+        box-shadow: var(--shadow-heavy);
+        overflow: hidden;
+        transition: var(--transition);
+    }
+
+    .navigation-wrapper:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 25px 60px rgba(0, 0, 0, 0.15);
+    }
+
+    /* Header Section */
+    .header {
+        background: var(--gradient-primary);
+        padding: 30px 40px;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .header::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 Z" fill="rgba(255,255,255,0.05)"/></svg>');
+        background-size: cover;
+        z-index: 0;
+    }
+
+    .header-content {
+        position: relative;
+        z-index: 1;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+    .logo {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .logo-icon {
+        width: 50px;
+        height: 50px;
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        backdrop-filter: blur(5px);
+    }
+
+    .logo-icon i {
+        font-size: 1.5rem;
+        color: white;
+    }
+
+    .logo-text h1 {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 2.2rem;
+        font-weight: 700;
+        color: white;
+        letter-spacing: 0.5px;
+        line-height: 1.2;
+    }
+
+    .logo-text h1 span {
+        color: #4cc9f0;
+        position: relative;
+    }
+
+    .logo-text h1 span::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 3px;
+        background: var(--accent-color);
+        border-radius: 2px;
+    }
+
+    .logo-text p {
+        color: rgba(255, 255, 255, 0.8);
+        font-size: 0.9rem;
+        margin-top: 5px;
+    }
+
+    .header-stats {
+        display: flex;
+        gap: 25px;
+        background: rgba(255, 255, 255, 0.1);
+        padding: 15px 25px;
+        border-radius: 50px;
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .stat-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .stat-value {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: white;
+        line-height: 1;
+    }
+
+    .stat-label {
+        font-size: 0.8rem;
+        color: rgba(255, 255, 255, 0.8);
+        margin-top: 5px;
+    }
+
+    /* Navigation Section */
+    .navigation-content {
+        padding: 40px;
+    }
+
+    .nav-section {
+        margin-bottom: 40px;
+    }
+
+    .section-header {
+        display: flex;
+        align-items: center;
+        margin-bottom: 25px;
+        padding-bottom: 15px;
+        border-bottom: 2px solid #f0f0f0;
+    }
+
+    .section-icon {
+        width: 40px;
+        height: 40px;
+        background: var(--gradient-primary);
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 15px;
+    }
+
+    .section-icon i {
+        color: white;
+        font-size: 1.2rem;
+    }
+
+    .section-header h2 {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: var(--dark-bg);
+    }
+
+    .section-header p {
+        color: #666;
+        font-size: 0.9rem;
+        margin-top: 5px;
+    }
+
+    .nav-buttons {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 20px;
+    }
+
+    /* Button Styles */
+    .nav-btn {
+        position: relative;
+        padding: 20px 25px;
+        border: none;
+        border-radius: var(--border-radius);
+        font-family: 'Poppins', sans-serif;
+        font-weight: 600;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: var(--transition);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        overflow: hidden;
+        z-index: 1;
+        text-align: left;
+        box-shadow: var(--shadow);
+    }
+
+    .nav-btn::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(255, 255, 255, 0.1);
+        z-index: -1;
+        transition: var(--transition);
+        opacity: 0;
+    }
+
+    .nav-btn:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+    }
+
+    .nav-btn:hover::before {
+        opacity: 1;
+    }
+
+    .nav-btn i {
+        font-size: 1.3rem;
+        transition: var(--transition);
+    }
+
+    .nav-btn:hover i {
+        transform: scale(1.2);
+    }
+
+    .btn-primary {
+        background: var(--gradient-blue);
+        color: white;
+    }
+
+    .btn-primary:hover {
+        background: linear-gradient(135deg, #5a13b8, #4a0cb4);
+    }
+
+    .btn-secondary {
+        background: var(--gradient-green);
+        color: white;
+    }
+
+    .btn-secondary:hover {
+        background: linear-gradient(135deg, #5bd2f5, #4e6aee);
+    }
+
+    .btn-accent {
+        background: var(--gradient-accent);
+        color: white;
+    }
+
+    .btn-accent:hover {
+        background: linear-gradient(135deg, #ff2d95, #c61a8f);
+    }
+
+    .btn-outline {
+        background: transparent;
+        color: var(--primary-color);
+        border: 2px solid var(--primary-color);
+    }
+
+    .btn-outline:hover {
+        background: var(--primary-color);
+        color: white;
+    }
+
+    .btn-badge {
+        position: absolute;
+        top: -8px;
+        right: -8px;
+        background: var(--accent-color);
+        color: white;
+        font-size: 0.7rem;
+        font-weight: 700;
+        padding: 4px 8px;
+        border-radius: 20px;
+        min-width: 24px;
+        text-align: center;
+        box-shadow: 0 4px 8px rgba(247, 37, 133, 0.3);
+    }
+
+    .btn-notification {
+        animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+        0% { box-shadow: 0 0 0 0 rgba(247, 37, 133, 0.4); }
+        70% { box-shadow: 0 0 0 10px rgba(247, 37, 133, 0); }
+        100% { box-shadow: 0 0 0 0 rgba(247, 37, 133, 0); }
+    }
+
+    /* Active Button State */
+    .nav-btn.active {
+        transform: scale(1.05);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    }
+
+    .nav-btn.active::after {
+        content: '';
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        width: 8px;
+        height: 8px;
+        background: #4cc9f0;
+        border-radius: 50%;
+        animation: blink 1.5s infinite;
+    }
+
+    @keyframes blink {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0.3; }
+    }
+
+    /* User Profile Section */
+    .user-profile {
+        background: linear-gradient(to right, #f8f9fa, #e9ecef);
+        padding: 30px;
+        border-radius: var(--border-radius);
+        margin-top: 40px;
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        border-left: 5px solid var(--primary-color);
+    }
+
+    .user-avatar {
+        width: 70px;
+        height: 70px;
+        border-radius: 50%;
+        background: var(--gradient-primary);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.8rem;
+        color: white;
+        font-weight: 700;
+        box-shadow: 0 8px 20px rgba(67, 97, 238, 0.3);
+    }
+
+    .user-info h3 {
+        font-size: 1.4rem;
+        color: var(--dark-bg);
+        margin-bottom: 5px;
+    }
+
+    .user-info p {
+        color: #666;
+        font-size: 0.9rem;
+        margin-bottom: 10px;
+    }
+
+    .user-status {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .status-indicator {
+        width: 10px;
+        height: 10px;
+        background: #2ecc71;
+        border-radius: 50%;
+        position: relative;
+    }
+
+    .status-indicator::after {
+        content: '';
+        position: absolute;
+        top: -3px;
+        left: -3px;
+        right: -3px;
+        bottom: -3px;
+        background: rgba(46, 204, 113, 0.3);
+        border-radius: 50%;
+        animation: pulse-status 2s infinite;
+    }
+
+    @keyframes pulse-status {
+        0% { transform: scale(1); opacity: 0.7; }
+        70% { transform: scale(1.5); opacity: 0; }
+        100% { transform: scale(1); opacity: 0; }
+    }
+
+    .status-text {
+        font-size: 0.9rem;
+        color: #666;
+    }
+
+    /* Welcome Message for Sudhanshu */
+    .welcome-message {
+        background: linear-gradient(135deg, #4361ee, #3a0ca3);
+        color: white;
+        padding: 15px 25px;
+        border-radius: var(--border-radius);
+        margin-bottom: 25px;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .welcome-message::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 Z" fill="rgba(255,255,255,0.1)"/></svg>');
+        background-size: cover;
+        z-index: 0;
+    }
+
+    .welcome-message h3 {
+        position: relative;
+        z-index: 1;
+        font-size: 1.3rem;
+        margin-bottom: 5px;
+    }
+
+    .welcome-message p {
+        position: relative;
+        z-index: 1;
+        font-size: 0.9rem;
+        opacity: 0.9;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 992px) {
+        .header-content {
+            flex-direction: column;
+            gap: 20px;
+            text-align: center;
+        }
+        
+        .logo {
+            justify-content: center;
+        }
+        
+        .nav-buttons {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    @media (max-width: 768px) {
+        .header {
+            padding: 25px 20px;
+        }
+        
+        .navigation-content {
+            padding: 25px 20px;
+        }
+        
+        .nav-buttons {
+            grid-template-columns: 1fr;
+        }
+        
+        .user-profile {
+            flex-direction: column;
+            text-align: center;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .logo-text h1 {
+            font-size: 1.8rem;
+        }
+        
+        .header-stats {
+            flex-direction: column;
+            gap: 15px;
+            padding: 15px;
+        }
+        
+        .section-header h2 {
+            font-size: 1.3rem;
+        }
+    }
+
+    /* Dark Mode Toggle */
+    .theme-toggle {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        width: 60px;
+        height: 30px;
+        background: var(--gradient-primary);
+        border-radius: 50px;
+        display: flex;
+        align-items: center;
+        padding: 5px;
+        cursor: pointer;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        z-index: 1000;
+    }
+
+    .theme-toggle input {
+        display: none;
+    }
+
+    .toggle-slider {
+        width: 22px;
+        height: 22px;
+        background: white;
+        border-radius: 50%;
+        transition: transform 0.3s ease;
+        transform: translateX(0);
+    }
+
+    .theme-toggle input:checked + .toggle-slider {
+        transform: translateX(30px);
+    }
+
+    .toggle-icon {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        color: white;
+        font-size: 0.8rem;
+    }
+
+    .sun-icon {
+        left: 10px;
+    }
+
+    .moon-icon {
+        right: 10px;
+    }
+
+    /* Sudhanshu Special Styling */
+    .sudhanshu-highlight {
+        background: linear-gradient(45deg, #FF6B6B, #4ECDC4, #45B7D1, #96CEB4, #FFEAA7);
+        background-size: 300% 300%;
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        animation: gradientShift 5s ease infinite;
+    }
+
+    @keyframes gradientShift {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+    }
+</style>
+</head>
+<body>
+<div class="container">
+    <div class="navigation-wrapper">
+        <!-- Header Section -->
+        <div class="header">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-icon">
+                        <i class="fas fa-compass"></i>
+                    </div>
+                    <div class="logo-text">
+                        <h1><span class="sudhanshu-highlight">Sudhanshu's</span> Navigation Hub</h1>
+                        <p>Welcome back, Sudhanshu! Access all sections and features from one place</p>
+                    </div>
+                </div>
+                <div class="header-stats">
+                    <div class="stat-item">
+                        <div class="stat-value">24</div>
+                        <div class="stat-label">Active Sessions</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">89%</div>
+                        <div class="stat-label">Profile Complete</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">156</div>
+                        <div class="stat-label">Projects</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation Content -->
+        <div class="navigation-content">
+            <!-- Welcome Message -->
+            <div class="welcome-message">
+                <h3>👋 Welcome Back, Sudhanshu!</h3>
+                <p>You have 3 new notifications and 5 pending tasks. Last login: Today at 10:45 AM</p>
+            </div>
+
+            <!-- Main Navigation Section -->
+            <div class="nav-section">
+                <div class="section-header">
+                    <div class="section-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <div>
+                        <h2>Sudhanshu's Main Navigation</h2>
+                        <p>Primary website sections and pages customized for Sudhanshu</p>
+                    </div>
+                </div>
+                <div class="nav-buttons">
+                    <button class="nav-btn btn-primary active" id="homeBtn">
+                        <i class="fas fa-home"></i>
+                        Home Dashboard
+                        <div class="btn-badge">3</div>
+                    </button>
+                    <button class="nav-btn btn-primary" id="projectsBtn">
+                        <i class="fas fa-code"></i>
+                        Sudhanshu's Projects
+                    </button>
+                    <button class="nav-btn btn-primary" id="portfolioBtn">
+                        <i class="fas fa-briefcase"></i>
+                        Portfolio
+                        <div class="btn-badge">New</div>
+                    </button>
+                    <button class="nav-btn btn-primary" id="blogBtn">
+                        <i class="fas fa-blog"></i>
+                        Sudhanshu's Blog
+                    </button>
+                    <button class="nav-btn btn-primary" id="aboutBtn">
+                        <i class="fas fa-info-circle"></i>
+                        About Sudhanshu
+                    </button>
+                    <button class="nav-btn btn-primary" id="contactBtn">
+                        <i class="fas fa-envelope"></i>
+                        Contact
+                    </button>
+                </div>
+            </div>
+
+            <!-- User Dashboard Section -->
+            <div class="nav-section">
+                <div class="section-header">
+                    <div class="section-icon">
+                        <i class="fas fa-tachometer-alt"></i>
+                    </div>
+                    <div>
+                        <h2>Sudhanshu's Dashboard</h2>
+                        <p>Manage your account, activities, and settings</p>
+                    </div>
+                </div>
+                <div class="nav-buttons">
+                    <button class="nav-btn btn-secondary" id="dashboardBtn">
+                        <i class="fas fa-chart-line"></i>
+                        Analytics Dashboard
+                    </button>
+                    <button class="nav-btn btn-secondary" id="profileBtn">
+                        <i class="fas fa-user-cog"></i>
+                        Sudhanshu's Profile
+                    </button>
+                    <button class="nav-btn btn-secondary btn-notification" id="messagesBtn">
+                        <i class="fas fa-comments"></i>
+                        Messages
+                        <div class="btn-badge">5</div>
+                    </button>
+                    <button class="nav-btn btn-secondary" id="settingsBtn">
+                        <i class="fas fa-cogs"></i>
+                        Settings
+                    </button>
+                    <button class="nav-btn btn-accent" id="logoutBtn">
+                        <i class="fas fa-sign-out-alt"></i>
+                        Logout
+                    </button>
+                    <button class="nav-btn btn-outline" id="helpBtn">
+                        <i class="fas fa-question-circle"></i>
+                        Help & Support
+                    </button>
+                </div>
+            </div>
+
+            <!-- User Profile Section -->
+            <div class="user-profile">
+                <div class="user-avatar">
+                    SU
+                </div>
+                <div class="user-info">
+                    <h3 class="sudhanshu-highlight">Sudhanshu</h3>
+                    <p>Lead Developer • Last login: Today, 10:45 AM</p>
+                    <div class="user-status">
+                        <div class="status-indicator"></div>
+                        <span class="status-text">Online • Active Now</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Dark Mode Toggle -->
+<div class="theme-toggle" id="themeToggle">
+    <input type="checkbox" id="darkModeToggle">
+    <label for="darkModeToggle" class="toggle-slider"></label>
+    <i class="fas fa-sun toggle-icon sun-icon"></i>
+    <i class="fas fa-moon toggle-icon moon-icon"></i>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Navigation button interactions
+        const navButtons = document.querySelectorAll('.nav-btn');
+        let activeButton = document.getElementById('homeBtn');
+        
+        // Personalize the interface for Sudhanshu
+        const userName = "Sudhanshu";
+        const userAvatar = document.querySelector('.user-avatar');
+        
+        // Set avatar based on name
+        function setAvatar(name) {
+            const initials = name.substring(0, 2).toUpperCase();
+            userAvatar.textContent = initials;
+            
+            // Create gradient based on name
+            const colors = [
+                '#4361ee', '#3a0ca3', '#f72585', 
+                '#4cc9f0', '#7209b7', '#b5179e'
+            ];
+            const nameHash = name.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0);
+            const color1 = colors[nameHash % colors.length];
+            const color2 = colors[(nameHash + 1) % colors.length];
+            
+            userAvatar.style.background = `linear-gradient(135deg, ${color1}, ${color2})`;
+        }
+        
+        setAvatar(userName);
+        
+        navButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                // Remove active class from all buttons
+                navButtons.forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                
+                // Add active class to clicked button
+                this.classList.add('active');
+                activeButton = this;
+                
+                // Get button text for demo purposes
+                const buttonText = this.querySelector('i').nextSibling.textContent.trim();
+                
+                // Personalized message for Sudhanshu
+                const messages = {
+                    'Home Dashboard': `Welcome home, ${userName}! Your dashboard is ready.`,
+                    'Sudhanshu\'s Projects': `Opening ${userName}'s project portfolio...`,
+                    'Portfolio': `Displaying ${userName}'s professional portfolio...`,
+                    'Sudhanshu\'s Blog': `Loading ${userName}'s latest articles...`,
+                    'About Sudhanshu': `Showing information about ${userName}...`,
+                    'Sudhanshu\'s Profile': `Opening ${userName}'s profile settings...`,
+                    'Analytics Dashboard': `Showing analytics for ${userName}...`
+                };
+                
+                const message = messages[buttonText] || `Navigating to: ${buttonText}`;
+                console.log(message);
+                
+                // Update welcome message
+                const welcomeMessage = document.querySelector('.welcome-message h3');
+                welcomeMessage.innerHTML = `🚀 ${userName} is now viewing: <span style="color: #4cc9f0">${buttonText}</span>`;
+                
+                // Add a ripple effect
+                createRippleEffect(this);
+                
+                // If it's the logout button, show confirmation
+                if (this.id === 'logoutBtn') {
+                    setTimeout(() => {
+                        if(confirm(`${userName}, are you sure you want to logout?`)) {
+                            alert(`Goodbye ${userName}! You have been logged out successfully.`);
+                        }
+                    }, 300);
+                }
+            });
+            
+            // Add hover sound effect simulation
+            button.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-8px)';
+            });
+            
+            button.addEventListener('mouseleave', function() {
+                if (!this.classList.contains('active')) {
+                    this.style.transform = 'translateY(0)';
+                }
+            });
+        });
+        
+        // Create ripple effect on button click
+        function createRippleEffect(button) {
+            const ripple = document.createElement('span');
+            const diameter = Math.max(button.clientWidth, button.clientHeight);
+            const radius = diameter / 2;
+            
+            ripple.style.width = ripple.style.height = `${diameter}px`;
+            ripple.style.left = `${event.clientX - button.getBoundingClientRect().left - radius}px`;
+            ripple.style.top = `${event.clientY - button.getBoundingClientRect().top - radius}px`;
+            ripple.classList.add('ripple');
+            
+            // Add CSS for ripple
+            ripple.style.position = 'absolute';
+            ripple.style.borderRadius = '50%';
+            ripple.style.backgroundColor = 'rgba(255, 255, 255, 0.7)';
+            ripple.style.transform = 'scale(0)';
+            ripple.style.animation = 'ripple-animation 0.6s linear';
+            
+            button.style.position = 'relative';
+            button.style.overflow = 'hidden';
+            button.appendChild(ripple);
+            
+            // Remove ripple after animation completes
+            setTimeout(() => {
+                ripple.remove();
+            }, 600);
+        }
+        
+        // Add CSS for ripple animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes ripple-animation {
+                to {
+                    transform: scale(4);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+        
+        // Dark mode toggle functionality
+        const themeToggle = document.getElementById('darkModeToggle');
+        const navigationWrapper = document.querySelector('.navigation-wrapper');
+        
+        themeToggle.addEventListener('change', function() {
+            if (this.checked) {
+                // Apply dark mode
+                document.body.style.background = 'linear-gradient(135deg, #0f0c29, #302b63, #24243e)';
+                navigationWrapper.style.background = '#1a1a2e';
+                navigationWrapper.style.color = '#f0f0f0';
+                
+                // Update text colors for dark mode
+                document.querySelectorAll('.section-header h2, .user-info h3').forEach(el => {
+                    el.style.color = '#f0f0f0';
+                });
+                
+                document.querySelectorAll('.section-header p, .user-info p, .status-text').forEach(el => {
+                    el.style.color = '#b0b0b0';
+                });
+                
+                document.querySelector('.user-profile').style.background = 'linear-gradient(to right, #2d2d44, #252536)';
+                document.querySelector('.welcome-message').style.background = 'linear-gradient(135deg, #7209b7, #3a0ca3)';
+            } else {
+                // Apply light mode
+                document.body.style.background = 'linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%)';
+                navigationWrapper.style.background = 'white';
+                navigationWrapper.style.color = '#333';
+                
+                // Revert text colors for light mode
+                document.querySelectorAll('.section-header h2, .user-info h3').forEach(el => {
+                    el.style.color = '';
+                });
+                
+                document.querySelectorAll('.section-header p, .user-info p, .status-text').forEach(el => {
+                    el.style.color = '';
+                });
+                
+                document.querySelector('.user-profile').style.background = '';
+                document.querySelector('.welcome-message').style.background = '';
+            }
+        });
+        
+        // Simulate notification update for Sudhanshu
+        setInterval(() => {
+            const messageBadge = document.querySelector('#messagesBtn .btn-badge');
+            const homeBadge = document.querySelector('#homeBtn .btn-badge');
+            const currentCount = parseInt(messageBadge.textContent);
+            
+            // Randomly add new messages (for demo)
+            if (Math.random() > 0.7 && currentCount < 10) {
+                messageBadge.textContent = currentCount + 1;
+                document.getElementById('messagesBtn').classList.add('btn-notification');
+                
+                // Update welcome message
+                const welcomeMessage = document.querySelector('.welcome-message p');
+                welcomeMessage.innerHTML = `📬 ${userName}, you have ${currentCount + 1} new messages! Last login: Today at 10:45 AM`;
+                
+                // Show notification alert (in a real app, this would be more subtle)
+                setTimeout(() => {
+                    document.getElementById('messagesBtn').classList.remove('btn-notification');
+                }, 3000);
+            }
+            
+            // Randomly update home notifications
+            if (Math.random() > 0.8) {
+                const homeCount = parseInt(homeBadge.textContent);
+                homeBadge.textContent = Math.min(9, homeCount + 1);
+            }
+        }, 5000);
+        
+        // Add keyboard navigation
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'ArrowRight' || event.key === 'ArrowDown') {
+                navigateButtons(1);
+            } else if (event.key === 'ArrowLeft' || event.key === 'ArrowUp') {
+                navigateButtons(-1);
+            } else if (event.key === 'Enter') {
+                if (activeButton) {
+                    activeButton.click();
+                }
+            } else if (event.key === 's' || event.key === 'S') {
+                // Special shortcut for Sudhanshu
+                const welcomeMessage = document.querySelector('.welcome-message h3');
+                welcomeMessage.innerHTML = `🎯 Special shortcut activated for <span class="sudhanshu-highlight">${userName}</span>!`;
+                setTimeout(() => {
+                    welcomeMessage.innerHTML = `👋 Welcome Back, ${userName}!`;
+                }, 2000);
+            }
+        });
+        
+        function navigateButtons(direction) {
+            const currentIndex = Array.from(navButtons).indexOf(activeButton);
+            let newIndex = currentIndex + direction;
+            
+            if (newIndex < 0) newIndex = navButtons.length - 1;
+            if (newIndex >= navButtons.length) newIndex = 0;
+            
+            // Remove active class from current button
+            activeButton.classList.remove('active');
+            
+            // Add active class to new button
+            navButtons[newIndex].classList.add('active');
+            activeButton = navButtons[newIndex];
+            
+            // Scroll into view if needed
+            activeButton.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+        
+        // Initialize with first button active
+        if (navButtons.length > 0) {
+            navButtons[0].classList.add('active');
+        }
+        
+        // Special greeting for Sudhanshu
+        setTimeout(() => {
+            const welcomeMessage = document.querySelector('.welcome-message h3');
+            welcomeMessage.innerHTML = `🎉 Hey <span class="sudhanshu-highlight">${userName}</span>, great to see you again!`;
+            
+            setTimeout(() => {
+                welcomeMessage.innerHTML = `👋 Welcome Back, ${userName}!`;
+            }, 3000);
+        }, 1000);
+    });
+</script>
+</body>
+</html>

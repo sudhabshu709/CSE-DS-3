@@ -1,0 +1,1300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>University Student Registration Portal</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto+Slab:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary-blue: #2c3e50;
+      --secondary-blue: #3498db;
+      --accent-gold: #f1c40f;
+      --light-bg: #f8f9fa;
+      --dark-text: #2c3e50;
+      --light-text: #7f8c8d;
+      --success: #2ecc71;
+      --warning: #e74c3c;
+      --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      --shadow-heavy: 0 20px 40px rgba(0, 0, 0, 0.12);
+      --transition: all 0.3s ease;
+      --border-radius: 10px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+      color: var(--dark-text);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      line-height: 1.6;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .registration-wrapper {
+      display: flex;
+      background: white;
+      border-radius: var(--border-radius);
+      overflow: hidden;
+      box-shadow: var(--shadow-heavy);
+      min-height: 800px;
+    }
+
+    .university-sidebar {
+      flex: 1;
+      background: linear-gradient(145deg, var(--primary-blue), #1a2530);
+      color: white;
+      padding: 40px 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .university-sidebar::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');
+      background-size: cover;
+      background-position: center;
+      opacity: 0.1;
+      z-index: 0;
+    }
+
+    .sidebar-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .university-header {
+      margin-bottom: 40px;
+    }
+
+    .university-header h1 {
+      font-family: 'Roboto Slab', serif;
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: white;
+      margin-bottom: 10px;
+      letter-spacing: 0.5px;
+    }
+
+    .university-header .subtitle {
+      font-size: 1.1rem;
+      color: rgba(255, 255, 255, 0.8);
+      font-weight: 300;
+    }
+
+    .university-logo {
+      display: flex;
+      align-items: center;
+      margin-bottom: 30px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .logo-icon {
+      width: 60px;
+      height: 60px;
+      background: var(--accent-gold);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 15px;
+    }
+
+    .logo-icon i {
+      font-size: 1.8rem;
+      color: var(--primary-blue);
+    }
+
+    .logo-text h2 {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: white;
+    }
+
+    .logo-text p {
+      font-size: 0.9rem;
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    .sidebar-features {
+      margin-top: 40px;
+    }
+
+    .feature {
+      display: flex;
+      align-items: center;
+      margin-bottom: 25px;
+    }
+
+    .feature-icon {
+      width: 45px;
+      height: 45px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 15px;
+    }
+
+    .feature-icon i {
+      color: var(--accent-gold);
+      font-size: 1.2rem;
+    }
+
+    .feature-text h4 {
+      font-size: 1rem;
+      margin-bottom: 5px;
+      color: white;
+    }
+
+    .feature-text p {
+      font-size: 0.85rem;
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    .sidebar-footer {
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding-top: 20px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .deadline-info {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+    }
+
+    .deadline-info i {
+      color: var(--accent-gold);
+      margin-right: 10px;
+      font-size: 1.1rem;
+    }
+
+    .deadline-text {
+      font-size: 0.9rem;
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    .deadline-date {
+      font-weight: 600;
+      color: white;
+    }
+
+    .registration-form-container {
+      flex: 1.5;
+      padding: 50px 40px;
+      background: var(--light-bg);
+      overflow-y: auto;
+    }
+
+    .form-header {
+      margin-bottom: 40px;
+    }
+
+    .form-header h2 {
+      font-family: 'Roboto Slab', serif;
+      font-size: 2.2rem;
+      color: var(--primary-blue);
+      margin-bottom: 10px;
+      position: relative;
+      display: inline-block;
+    }
+
+    .form-header h2::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 60px;
+      height: 4px;
+      background: var(--accent-gold);
+      border-radius: 2px;
+    }
+
+    .form-header p {
+      color: var(--light-text);
+      font-size: 1rem;
+      margin-top: 15px;
+    }
+
+    .form-progress {
+      display: flex;
+      margin-bottom: 40px;
+      position: relative;
+    }
+
+    .progress-step {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+    }
+
+    .step-circle {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: white;
+      border: 3px solid #dfe6e9;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+      color: var(--light-text);
+      margin-bottom: 10px;
+      position: relative;
+      z-index: 2;
+      transition: var(--transition);
+    }
+
+    .progress-step.active .step-circle {
+      border-color: var(--secondary-blue);
+      background: var(--secondary-blue);
+      color: white;
+      transform: scale(1.1);
+    }
+
+    .progress-step.completed .step-circle {
+      border-color: var(--success);
+      background: var(--success);
+      color: white;
+    }
+
+    .step-label {
+      font-size: 0.85rem;
+      color: var(--light-text);
+      font-weight: 500;
+      text-align: center;
+    }
+
+    .progress-step.active .step-label {
+      color: var(--primary-blue);
+      font-weight: 600;
+    }
+
+    .progress-line {
+      position: absolute;
+      top: 20px;
+      left: 50px;
+      right: 50px;
+      height: 3px;
+      background: #dfe6e9;
+      z-index: 1;
+    }
+
+    .progress-line-fill {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      background: var(--secondary-blue);
+      width: 0%;
+      transition: var(--transition);
+    }
+
+    .form-step {
+      display: none;
+      animation: fadeIn 0.5s ease;
+    }
+
+    .form-step.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 25px;
+      margin-bottom: 25px;
+    }
+
+    .form-group {
+      margin-bottom: 25px;
+    }
+
+    .form-group.full-width {
+      grid-column: 1 / -1;
+    }
+
+    .form-label {
+      display: block;
+      margin-bottom: 10px;
+      font-weight: 600;
+      color: var(--primary-blue);
+      font-size: 1rem;
+    }
+
+    .form-label .required {
+      color: var(--warning);
+      margin-left: 3px;
+    }
+
+    .input-with-icon {
+      position: relative;
+    }
+
+    .input-with-icon i {
+      position: absolute;
+      left: 18px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--secondary-blue);
+      font-size: 1.2rem;
+    }
+
+    .form-input,
+    .form-select,
+    .form-textarea {
+      width: 100%;
+      padding: 16px 20px 16px 55px;
+      border: 2px solid #dfe6e9;
+      border-radius: var(--border-radius);
+      font-size: 1rem;
+      font-family: 'Poppins', sans-serif;
+      transition: var(--transition);
+      background: white;
+    }
+
+    .form-input:focus,
+    .form-select:focus,
+    .form-textarea:focus {
+      outline: none;
+      border-color: var(--secondary-blue);
+      box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+    }
+
+    .form-textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .radio-group {
+      display: flex;
+      gap: 30px;
+      margin-top: 10px;
+    }
+
+    .radio-option {
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+    }
+
+    .radio-option input[type="radio"] {
+      display: none;
+    }
+
+    .radio-custom {
+      width: 22px;
+      height: 22px;
+      border: 2px solid #dfe6e9;
+      border-radius: 50%;
+      margin-right: 10px;
+      position: relative;
+      transition: var(--transition);
+    }
+
+    .radio-option input[type="radio"]:checked + .radio-custom {
+      border-color: var(--secondary-blue);
+    }
+
+    .radio-option input[type="radio"]:checked + .radio-custom::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 12px;
+      height: 12px;
+      background: var(--secondary-blue);
+      border-radius: 50%;
+    }
+
+    .radio-label {
+      font-weight: 500;
+      color: var(--dark-text);
+    }
+
+    .password-toggle {
+      position: absolute;
+      right: 18px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      color: var(--light-text);
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .password-toggle:hover {
+      color: var(--secondary-blue);
+    }
+
+    .form-buttons {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 50px;
+    }
+
+    .btn {
+      padding: 16px 40px;
+      border-radius: var(--border-radius);
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+      font-family: 'Poppins', sans-serif;
+      border: none;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .btn-secondary {
+      background: white;
+      border: 2px solid #dfe6e9;
+      color: var(--light-text);
+    }
+
+    .btn-secondary:hover {
+      background: #f5f5f5;
+      border-color: #bdc3c7;
+    }
+
+    .btn-primary {
+      background: var(--secondary-blue);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: #2980b9;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(52, 152, 219, 0.2);
+    }
+
+    .btn-accent {
+      background: var(--accent-gold);
+      color: var(--primary-blue);
+      font-weight: 700;
+    }
+
+    .btn-accent:hover {
+      background: #f39c12;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(241, 196, 15, 0.2);
+    }
+
+    .review-summary {
+      background: white;
+      border-radius: var(--border-radius);
+      padding: 30px;
+      box-shadow: var(--shadow);
+      margin-top: 30px;
+    }
+
+    .review-summary h3 {
+      font-size: 1.5rem;
+      color: var(--primary-blue);
+      margin-bottom: 20px;
+      padding-bottom: 15px;
+      border-bottom: 2px solid #f1f2f6;
+    }
+
+    .summary-item {
+      display: flex;
+      padding: 15px 0;
+      border-bottom: 1px solid #f1f2f6;
+    }
+
+    .summary-label {
+      flex: 1;
+      color: var(--light-text);
+      font-weight: 500;
+    }
+
+    .summary-value {
+      flex: 1.5;
+      color: var(--dark-text);
+      font-weight: 600;
+    }
+
+    .summary-item:last-child {
+      border-bottom: none;
+    }
+
+    .confirmation-message {
+      text-align: center;
+      padding: 40px 0;
+    }
+
+    .confirmation-icon {
+      font-size: 4rem;
+      color: var(--success);
+      margin-bottom: 20px;
+    }
+
+    .confirmation-message h3 {
+      font-size: 2rem;
+      color: var(--primary-blue);
+      margin-bottom: 15px;
+    }
+
+    .confirmation-message p {
+      color: var(--light-text);
+      margin-bottom: 30px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .student-id {
+      background: var(--primary-blue);
+      color: white;
+      padding: 20px;
+      border-radius: var(--border-radius);
+      margin: 30px auto;
+      max-width: 400px;
+      text-align: center;
+    }
+
+    .student-id h4 {
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+      color: var(--accent-gold);
+    }
+
+    .id-number {
+      font-size: 2rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      color: white;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 992px) {
+      .registration-wrapper {
+        flex-direction: column;
+      }
+      
+      .university-sidebar {
+        padding: 30px;
+      }
+      
+      .registration-form-container {
+        padding: 30px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+      
+      .radio-group {
+        flex-direction: column;
+        gap: 15px;
+      }
+      
+      .form-buttons {
+        flex-direction: column;
+        gap: 15px;
+      }
+      
+      .btn {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .university-header h1 {
+        font-size: 2rem;
+      }
+      
+      .form-header h2 {
+        font-size: 1.8rem;
+      }
+      
+      .progress-line {
+        left: 40px;
+        right: 40px;
+      }
+    }
+
+    /* Form validation styles */
+    .form-input:invalid:not(:placeholder-shown),
+    .form-select:invalid:not(:placeholder-shown) {
+      border-color: var(--warning);
+    }
+
+    .error-message {
+      color: var(--warning);
+      font-size: 0.85rem;
+      margin-top: 5px;
+      display: none;
+    }
+
+    .form-input:invalid:not(:placeholder-shown) ~ .error-message,
+    .form-select:invalid:not(:placeholder-shown) ~ .error-message {
+      display: block;
+    }
+
+    .strength-meter {
+      margin-top: 5px;
+      height: 5px;
+      border-radius: 3px;
+      background: #dfe6e9;
+      overflow: hidden;
+    }
+
+    .strength-fill {
+      height: 100%;
+      width: 0%;
+      border-radius: 3px;
+      transition: var(--transition);
+    }
+
+    .strength-weak {
+      background: var(--warning);
+      width: 30%;
+    }
+
+    .strength-medium {
+      background: #f39c12;
+      width: 60%;
+    }
+
+    .strength-strong {
+      background: var(--success);
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="registration-wrapper">
+      <!-- University Information Sidebar -->
+      <div class="university-sidebar">
+        <div class="sidebar-content">
+          <div class="university-logo">
+            <div class="logo-icon">
+              <i class="fas fa-graduation-cap"></i>
+            </div>
+            <div class="logo-text">
+              <h2>Prestige University</h2>
+              <p>Excellence in Education Since 1890</p>
+            </div>
+          </div>
+          
+          <div class="university-header">
+            <h1>Student Registration Portal</h1>
+            <p class="subtitle">Join our community of scholars and innovators</p>
+          </div>
+          
+          <div class="sidebar-features">
+            <div class="feature">
+              <div class="feature-icon">
+                <i class="fas fa-award"></i>
+              </div>
+              <div class="feature-text">
+                <h4>Top Ranked Programs</h4>
+                <p>Nationally accredited programs with industry recognition</p>
+              </div>
+            </div>
+            
+            <div class="feature">
+              <div class="feature-icon">
+                <i class="fas fa-user-friends"></i>
+              </div>
+              <div class="feature-text">
+                <h4>Expert Faculty</h4>
+                <p>Learn from distinguished professors and industry leaders</p>
+              </div>
+            </div>
+            
+            <div class="feature">
+              <div class="feature-icon">
+                <i class="fas fa-laptop-code"></i>
+              </div>
+              <div class="feature-text">
+                <h4>Modern Facilities</h4>
+                <p>State-of-the-art labs, libraries, and research centers</p>
+              </div>
+            </div>
+            
+            <div class="feature">
+              <div class="feature-icon">
+                <i class="fas fa-briefcase"></i>
+              </div>
+              <div class="feature-text">
+                <h4>Career Support</h4>
+                <p>95% placement rate with top companies worldwide</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="sidebar-footer">
+          <div class="deadline-info">
+            <i class="fas fa-clock"></i>
+            <div class="deadline-text">
+              Application Deadline: <span class="deadline-date">August 15, 2024</span>
+            </div>
+          </div>
+          <p class="deadline-text">Secure your seat for the Fall 2024 semester</p>
+        </div>
+      </div>
+      
+      <!-- Registration Form Section -->
+      <div class="registration-form-container">
+        <div class="form-header">
+          <h2>Student Registration Form</h2>
+          <p>Complete all sections to submit your application. Fields marked with <span class="required">*</span> are required.</p>
+        </div>
+        
+        <!-- Progress Indicator -->
+        <div class="form-progress">
+          <div class="progress-line">
+            <div class="progress-line-fill" id="progressFill"></div>
+          </div>
+          <div class="progress-step active" id="step1">
+            <div class="step-circle">1</div>
+            <div class="step-label">Personal Details</div>
+          </div>
+          <div class="progress-step" id="step2">
+            <div class="step-circle">2</div>
+            <div class="step-label">Academic Info</div>
+          </div>
+          <div class="progress-step" id="step3">
+            <div class="step-circle">3</div>
+            <div class="step-label">Review & Submit</div>
+          </div>
+        </div>
+        
+        <!-- Multi-Step Form -->
+        <form id="registrationForm" action="#" method="post">
+          <!-- Step 1: Personal Details -->
+          <div class="form-step active" id="step1-form">
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label">Full Name <span class="required">*</span></label>
+                <div class="input-with-icon">
+                  <i class="fas fa-user"></i>
+                  <input type="text" class="form-input" id="fullname" name="fullname" placeholder="Enter your full name" required>
+                </div>
+                <div class="error-message">Please enter your full name</div>
+              </div>
+              
+              <div class="form-group">
+                <label class="form-label">Email Address <span class="required">*</span></label>
+                <div class="input-with-icon">
+                  <i class="fas fa-envelope"></i>
+                  <input type="email" class="form-input" id="email" name="email" placeholder="student@example.com" required>
+                </div>
+                <div class="error-message">Please enter a valid email address</div>
+              </div>
+            </div>
+            
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label">Password <span class="required">*</span></label>
+                <div class="input-with-icon">
+                  <i class="fas fa-lock"></i>
+                  <input type="password" class="form-input" id="password" name="password" placeholder="Create a strong password" required>
+                  <button type="button" class="password-toggle" id="togglePassword">
+                    <i class="fas fa-eye"></i>
+                  </button>
+                </div>
+                <div class="strength-meter">
+                  <div class="strength-fill" id="passwordStrength"></div>
+                </div>
+                <div class="error-message">Password must be at least 8 characters</div>
+              </div>
+              
+              <div class="form-group">
+                <label class="form-label">Confirm Password <span class="required">*</span></label>
+                <div class="input-with-icon">
+                  <i class="fas fa-lock"></i>
+                  <input type="password" class="form-input" id="confirmPassword" name="confirmPassword" placeholder="Confirm your password" required>
+                </div>
+                <div class="error-message">Passwords do not match</div>
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <label class="form-label">Gender <span class="required">*</span></label>
+              <div class="radio-group">
+                <label class="radio-option">
+                  <input type="radio" name="gender" value="male" required>
+                  <span class="radio-custom"></span>
+                  <span class="radio-label">Male</span>
+                </label>
+                <label class="radio-option">
+                  <input type="radio" name="gender" value="female">
+                  <span class="radio-custom"></span>
+                  <span class="radio-label">Female</span>
+                </label>
+                <label class="radio-option">
+                  <input type="radio" name="gender" value="other">
+                  <span class="radio-custom"></span>
+                  <span class="radio-label">Other</span>
+                </label>
+                <label class="radio-option">
+                  <input type="radio" name="gender" value="prefer-not-to-say">
+                  <span class="radio-custom"></span>
+                  <span class="radio-label">Prefer not to say</span>
+                </label>
+              </div>
+              <div class="error-message">Please select your gender</div>
+            </div>
+            
+            <div class="form-buttons">
+              <div></div> <!-- Empty div for spacing -->
+              <button type="button" class="btn btn-primary next-step" data-next="step2">
+                Next: Academic Info <i class="fas fa-arrow-right"></i>
+              </button>
+            </div>
+          </div>
+          
+          <!-- Step 2: Academic Information -->
+          <div class="form-step" id="step2-form">
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label">Course Selection <span class="required">*</span></label>
+                <div class="input-with-icon">
+                  <i class="fas fa-book"></i>
+                  <select class="form-select" id="course" name="course" required>
+                    <option value="">-- Select Your Course --</option>
+                    <option value="btech">Bachelor of Technology (B.Tech)</option>
+                    <option value="bca">Bachelor of Computer Applications (BCA)</option>
+                    <option value="bsc">Bachelor of Science (B.Sc)</option>
+                    <option value="mba">Master of Business Administration (MBA)</option>
+                    <option value="mtech">Master of Technology (M.Tech)</option>
+                    <option value="phd">Doctor of Philosophy (PhD)</option>
+                  </select>
+                </div>
+                <div class="error-message">Please select a course</div>
+              </div>
+              
+              <div class="form-group">
+                <label class="form-label">Specialization</label>
+                <div class="input-with-icon">
+                  <i class="fas fa-code-branch"></i>
+                  <select class="form-select" id="specialization" name="specialization">
+                    <option value="">-- Select Specialization --</option>
+                    <option value="cs">Computer Science</option>
+                    <option value="it">Information Technology</option>
+                    <option value="ai">Artificial Intelligence</option>
+                    <option value="cyber">Cyber Security</option>
+                    <option value="data">Data Science</option>
+                    <option value="business">Business Analytics</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label">Contact Number <span class="required">*</span></label>
+                <div class="input-with-icon">
+                  <i class="fas fa-phone"></i>
+                  <input type="tel" class="form-input" id="phone" name="phone" placeholder="+1 (123) 456-7890" required>
+                </div>
+                <div class="error-message">Please enter a valid phone number</div>
+              </div>
+              
+              <div class="form-group">
+                <label class="form-label">Date of Birth <span class="required">*</span></label>
+                <div class="input-with-icon">
+                  <i class="fas fa-calendar-alt"></i>
+                  <input type="date" class="form-input" id="dob" name="dob" required>
+                </div>
+                <div class="error-message">Please enter your date of birth</div>
+              </div>
+            </div>
+            
+            <div class="form-group full-width">
+              <label class="form-label">Permanent Address <span class="required">*</span></label>
+              <div class="input-with-icon">
+                <i class="fas fa-map-marker-alt"></i>
+                <textarea class="form-textarea" id="address" name="address" placeholder="Enter your complete address including city, state, and postal code" required></textarea>
+              </div>
+              <div class="error-message">Please enter your address</div>
+            </div>
+            
+            <div class="form-group full-width">
+              <label class="form-label">Educational Background</label>
+              <div class="input-with-icon">
+                <i class="fas fa-graduation-cap"></i>
+                <textarea class="form-textarea" id="education" name="education" placeholder="Briefly describe your previous educational qualifications, institution names, and year of completion"></textarea>
+              </div>
+            </div>
+            
+            <div class="form-buttons">
+              <button type="button" class="btn btn-secondary prev-step" data-prev="step1">
+                <i class="fas fa-arrow-left"></i> Back
+              </button>
+              <button type="button" class="btn btn-primary next-step" data-next="step3">
+                Next: Review & Submit <i class="fas fa-arrow-right"></i>
+              </button>
+            </div>
+          </div>
+          
+          <!-- Step 3: Review and Submit -->
+          <div class="form-step" id="step3-form">
+            <div class="confirmation-message">
+              <div class="confirmation-icon">
+                <i class="fas fa-clipboard-check"></i>
+              </div>
+              <h3>Review Your Application</h3>
+              <p>Please review all the information you've provided below. Make sure everything is accurate before submitting your registration.</p>
+            </div>
+            
+            <div class="review-summary">
+              <h3>Application Summary</h3>
+              <div class="summary-item">
+                <div class="summary-label">Full Name:</div>
+                <div class="summary-value" id="review-name">John Doe</div>
+              </div>
+              <div class="summary-item">
+                <div class="summary-label">Email Address:</div>
+                <div class="summary-value" id="review-email">john.doe@example.com</div>
+              </div>
+              <div class="summary-item">
+                <div class="summary-label">Gender:</div>
+                <div class="summary-value" id="review-gender">Male</div>
+              </div>
+              <div class="summary-item">
+                <div class="summary-label">Course Selected:</div>
+                <div class="summary-value" id="review-course">Bachelor of Technology (B.Tech)</div>
+              </div>
+              <div class="summary-item">
+                <div class="summary-label">Specialization:</div>
+                <div class="summary-value" id="review-specialization">Computer Science</div>
+              </div>
+              <div class="summary-item">
+                <div class="summary-label">Contact Number:</div>
+                <div class="summary-value" id="review-phone">+1 (123) 456-7890</div>
+              </div>
+              <div class="summary-item">
+                <div class="summary-label">Address:</div>
+                <div class="summary-value" id="review-address">123 University Ave, City, State 12345</div>
+              </div>
+            </div>
+            
+            <div class="form-group full-width" style="margin-top: 30px;">
+              <label class="form-label">
+                <input type="checkbox" id="terms" name="terms" required>
+                I agree to the <a href="#" style="color: var(--secondary-blue);">Terms & Conditions</a> and confirm that all information provided is accurate.
+              </label>
+              <div class="error-message">You must agree to the terms and conditions</div>
+            </div>
+            
+            <div class="form-buttons">
+              <button type="button" class="btn btn-secondary prev-step" data-prev="step2">
+                <i class="fas fa-arrow-left"></i> Back to Edit
+              </button>
+              <button type="submit" class="btn btn-accent">
+                <i class="fas fa-paper-plane"></i> Submit Registration
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Multi-step form navigation
+      const nextButtons = document.querySelectorAll('.next-step');
+      const prevButtons = document.querySelectorAll('.prev-step');
+      const formSteps = document.querySelectorAll('.form-step');
+      const progressSteps = document.querySelectorAll('.progress-step');
+      const progressFill = document.getElementById('progressFill');
+      
+      // Initialize current step
+      let currentStep = 1;
+      const totalSteps = 3;
+      
+      // Next button functionality
+      nextButtons.forEach(button => {
+        button.addEventListener('click', function() {
+          const nextStepId = this.getAttribute('data-next');
+          if (validateCurrentStep()) {
+            navigateToStep(nextStepId);
+          }
+        });
+      });
+      
+      // Previous button functionality
+      prevButtons.forEach(button => {
+        button.addEventListener('click', function() {
+          const prevStepId = this.getAttribute('data-prev');
+          navigateToStep(prevStepId);
+        });
+      });
+      
+      // Function to validate current step before proceeding
+      function validateCurrentStep() {
+        const currentForm = document.getElementById(`step${currentStep}-form`);
+        const requiredInputs = currentForm.querySelectorAll('[required]');
+        let isValid = true;
+        
+        requiredInputs.forEach(input => {
+          if (!input.checkValidity()) {
+            input.classList.add('invalid');
+            isValid = false;
+          }
+        });
+        
+        // Special validation for password confirmation
+        if (currentStep === 1) {
+          const password = document.getElementById('password').value;
+          const confirmPassword = document.getElementById('confirmPassword').value;
+          
+          if (password !== confirmPassword) {
+            document.getElementById('confirmPassword').classList.add('invalid');
+            document.querySelector('#confirmPassword + .error-message').textContent = 'Passwords do not match';
+            document.querySelector('#confirmPassword + .error-message').style.display = 'block';
+            isValid = false;
+          }
+        }
+        
+        return isValid;
+      }
+      
+      // Function to navigate between steps
+      function navigateToStep(stepId) {
+        // Hide all form steps
+        formSteps.forEach(step => {
+          step.classList.remove('active');
+        });
+        
+        // Show target form step
+        document.getElementById(`${stepId}-form`).classList.add('active');
+        
+        // Update progress steps
+        const stepNumber = parseInt(stepId.replace('step', ''));
+        updateProgress(stepNumber);
+        
+        // Update current step
+        currentStep = stepNumber;
+        
+        // Update confirmation page details if we're on step 3
+        if (stepId === 'step3') {
+          updateConfirmationDetails();
+        }
+      }
+      
+      // Update progress indicator
+      function updateProgress(stepNumber) {
+        progressSteps.forEach((step, index) => {
+          const stepIndex = index + 1;
+          
+          if (stepIndex < stepNumber) {
+            step.classList.add('completed');
+            step.classList.remove('active');
+          } else if (stepIndex === stepNumber) {
+            step.classList.add('active');
+            step.classList.remove('completed');
+          } else {
+            step.classList.remove('active', 'completed');
+          }
+        });
+        
+        // Update progress line
+        const progressPercent = ((stepNumber - 1) / (totalSteps - 1)) * 100;
+        progressFill.style.width = `${progressPercent}%`;
+      }
+      
+      // Password strength indicator
+      const passwordInput = document.getElementById('password');
+      const passwordStrength = document.getElementById('passwordStrength');
+      
+      passwordInput.addEventListener('input', function() {
+        const password = this.value;
+        let strength = 0;
+        
+        // Length check
+        if (password.length >= 8) strength++;
+        
+        // Contains lowercase
+        if (/[a-z]/.test(password)) strength++;
+        
+        // Contains uppercase
+        if (/[A-Z]/.test(password)) strength++;
+        
+        // Contains numbers
+        if (/[0-9]/.test(password)) strength++;
+        
+        // Contains special characters
+        if (/[^A-Za-z0-9]/.test(password)) strength++;
+        
+        // Update strength meter
+        passwordStrength.className = 'strength-fill';
+        if (strength <= 2) {
+          passwordStrength.classList.add('strength-weak');
+        } else if (strength <= 4) {
+          passwordStrength.classList.add('strength-medium');
+        } else {
+          passwordStrength.classList.add('strength-strong');
+        }
+      });
+      
+      // Toggle password visibility
+      const togglePassword = document.getElementById('togglePassword');
+      togglePassword.addEventListener('click', function() {
+        const passwordField = document.getElementById('password');
+        const type = passwordField.getAttribute('type') === 'password' ? 'text' : 'password';
+        passwordField.setAttribute('type', type);
+        
+        // Toggle icon
+        const icon = this.querySelector('i');
+        icon.classList.toggle('fa-eye');
+        icon.classList.toggle('fa-eye-slash');
+      });
+      
+      // Update confirmation details
+      function updateConfirmationDetails() {
+        // Get values from form
+        const name = document.getElementById('fullname').value || 'John Doe';
+        const email = document.getElementById('email').value || 'john.doe@example.com';
+        const gender = document.querySelector('input[name="gender"]:checked')?.value || 'Not specified';
+        const course = document.getElementById('course').selectedOptions[0]?.text || 'Not selected';
+        const specialization = document.getElementById('specialization').selectedOptions[0]?.text || 'Not selected';
+        const phone = document.getElementById('phone').value || 'Not provided';
+        const address = document.getElementById('address').value || 'Not provided';
+        
+        // Format gender for display
+        let genderDisplay = gender.charAt(0).toUpperCase() + gender.slice(1);
+        if (gender === 'prefer-not-to-say') {
+          genderDisplay = 'Prefer not to say';
+        }
+        
+        // Update confirmation elements
+        document.getElementById('review-name').textContent = name;
+        document.getElementById('review-email').textContent = email;
+        document.getElementById('review-gender').textContent = genderDisplay;
+        document.getElementById('review-course').textContent = course;
+        document.getElementById('review-specialization').textContent = specialization;
+        document.getElementById('review-phone').textContent = phone;
+        document.getElementById('review-address').textContent = address;
+      }
+      
+      // Form submission
+      document.getElementById('registrationForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Validate terms agreement
+        const termsCheckbox = document.getElementById('terms');
+        if (!termsCheckbox.checked) {
+          termsCheckbox.parentElement.querySelector('.error-message').style.display = 'block';
+          return;
+        }
+        
+        // Show success message
+        const step3Form = document.getElementById('step3-form');
+        step3Form.innerHTML = `
+          <div class="confirmation-message">
+            <div class="confirmation-icon" style="color: var(--success);">
+              <i class="fas fa-check-circle"></i>
+            </div>
+            <h3>Registration Successful!</h3>
+            <p>Thank you for submitting your application to Prestige University. Your registration has been received and is being processed.</p>
+            
+            <div class="student-id">
+              <h4>Your Student ID:</h4>
+              <div class="id-number">PU-${Math.floor(100000 + Math.random() * 900000)}</div>
+              <p style="font-size: 0.9rem; margin-top: 10px; color: rgba(255,255,255,0.8);">Please save this ID for future reference</p>
+            </div>
+            
+            <p>An email confirmation with further instructions has been sent to your registered email address. Our admissions team will contact you within 3-5 business days.</p>
+            
+            <button type="button" class="btn btn-accent" style="margin-top: 30px;" onclick="window.location.reload()">
+              <i class="fas fa-redo"></i> Register Another Student
+            </button>
+          </div>
+        `;
+        
+        // Update progress to completed
+        progressSteps.forEach(step => {
+          step.classList.add('completed');
+          step.classList.remove('active');
+        });
+        
+        // Fill progress line completely
+        progressFill.style.width = '100%';
+      });
+      
+      // Initialize date input with reasonable default (18 years ago)
+      const dobInput = document.getElementById('dob');
+      const today = new Date();
+      const minDate = new Date(today.getFullYear() - 18, today.getMonth(), today.getDate());
+      const maxDate = new Date(today.getFullYear() - 16, today.getMonth(), today.getDate());
+      
+      dobInput.min = `${minDate.getFullYear() - 40}-01-01`;
+      dobInput.max = `${maxDate.getFullYear()}-12-31`;
+      dobInput.value = `${minDate.getFullYear() - 2}-01-15`;
+      
+      // Real-time form validation
+      const formInputs = document.querySelectorAll('.form-input, .form-select, .form-textarea');
+      formInputs.forEach(input => {
+        input.addEventListener('blur', function() {
+          if (!this.checkValidity()) {
+            this.classList.add('invalid');
+          } else {
+            this.classList.remove('invalid');
+          }
+        });
+      });
+      
+      // Special handling for radio buttons
+      const radioButtons = document.querySelectorAll('input[type="radio"]');
+      radioButtons.forEach(radio => {
+        radio.addEventListener('change', function() {
+          // Remove invalid class from all radios in the group
+          const groupName = this.getAttribute('name');
+          document.querySelectorAll(`input[name="${groupName}"]`).forEach(r => {
+            r.classList.remove('invalid');
+          });
+        });
+      });
+    });
+  </script>
+</body>
+</html>
