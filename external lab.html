@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Registration Form</title>
+  <style>
+    body {
+      font-family: "Times New Roman", Times, serif;
+      margin: 50px;
+      border: 2px solid black;
+      padding: 20px;
+    }
+    h2 {
+      text-align: center;
+      font-weight: bold;
+      text-decoration: underline;
+    }
+    form {
+      margin-top: 20px;
+    }
+    label {
+      display: inline-block;
+      width: 120px;
+      vertical-align: top;
+      margin-bottom: 10px;
+    }
+    input, select, textarea {
+      padding: 4px;
+      margin-bottom: 10px;
+    }
+    textarea {
+      width: 430px;
+      height: 70px;
+    }
+    .buttons {
+      margin-top: 10px;
+    }
+    .footer {
+      text-align: center;
+      margin-top: 30px;
+      border-top: 1px solid gray;
+      padding-top: 10px;
+      font-size: 15px;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Student Registration Form</h2>
+  <hr>
+
+  <form>
+    <label>Full Name:</label>
+    <input type="text" placeholder="Enter your full name" required><br>
+
+    <label>Email:</label>
+    <input type="email" placeholder="Enter valid email address" required><br>
+
+    <label>Password:</label>
+    <input type="password" placeholder="Enter password" required><br>
+
+    <label>Gender:</label>
+    <input type="radio" name="gender" value="male"> Male
+    <input type="radio" name="gender" value="female"> Female
+    <input type="radio" name="gender" value="other"> Other<br>
+
+    <label>Course:</label>
+    <select required>
+      <option value="">-- Select Course --</option>
+      <option value="btech">B.Tech</option>
+      <option value="bca">BCA</option>
+      <option value="bsc">B.Sc</option>
+      <option value="mba">MBA</option>
+    </select><br>
+
+    <label>Contact No:</label>
+    <input type="tel" placeholder="Enter phone number" required><br>
+
+    <label>Address:</label>
+    <textarea placeholder="Enter your address"></textarea><br>
+
+    <div class="buttons">
+      <input type="submit" value="Register">
+      <input type="reset" value="Clear">
+    </div>
+  </form>
+
+  <div class="footer">
+    © 2025 Student Registration Portal
+  </div>
+
+</body>
+</html>
